@@ -43,3 +43,43 @@ body {
   background-size: 50px 50px;
   background-color: #4c2c1f;
 }
+
+#lights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  opacity: 0.0;
+}
+
+.turn-lights-on {
+  animation-duration: 5s;
+  animation-name: turn-lights-on-anim;
+
+  -webkit-animation-duration: 5s;
+  -webkit-animation-name: turn-lights-on-anim;
+}
+
+@keyframes turn-lights-on-anim {
+  from {
+    opacity: 1.0;
+}
+
+to {
+  opacity: 0.0;
+}
+
+}
+
+@-webkit-keyframes turn-lights-on-anim {
+  from {
+    opacity: 1.0;
+}
+
+to {
+  opacity: 0.0;
+}
+
+}
