@@ -8,19 +8,28 @@
 
   /* Events*/
 
-  // Lights on event
+  // Show title when the lights animation has ended
   $lights
-    .on('animationend', showText)
-    .on('webkitAnimationEnd', showText);
+    .on('animationend', showTitle)
+    .on('webkitAnimationEnd', showTitle);
 
-  // Hide lights div when the let's rock transition has ended
+  // Show Let's Rock div when the title transition has ended
+  $title
+    .on('transitionend', showLetsRock)
+    .on('webkitTransitionEnd', showLetsRock);
+
+  // Hide lights div when the Let's Rock transition has ended
   $letsRock
     .on('transitionend', hideLightsDiv)
     .on('webkitTransitionEnd', hideLightsDiv);
 
   // Functions for handling animation events
-  function showText() {
+  function showTitle() {
     updateCss($title, 'opacity', '1.0');
+  }
+
+  function showLetsRock() {
+    console.log('hola');
     updateCss($letsRock, 'opacity', '1.0');
   }
 
