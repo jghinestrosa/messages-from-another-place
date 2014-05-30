@@ -31,6 +31,20 @@ body {
   opacity: 0.0;
 }
 
+#lets-rock {
+  position: absolute;
+  top: 10em;
+  width: 100%;
+  font-size: 2em;
+  text-align: center;
+  color: white;
+  
+  transition-property: opacity;
+  transition-duration: 3s;
+  transition-delay: 2s;
+  opacity: 0.0;
+}
+
 #footer {
   position: absolute;
   bottom: 0;
