@@ -9,14 +9,27 @@
   /* Events*/
 
   // Lights on event
-  $lights.on('animationend', function() {
-    $title.css('opacity', '1.0');
-    $letsRock.css('opacity', '1.0');
-  });
+  $lights
+    .on('animationend', showText)
+    .on('webkitAnimationEnd', showText);
 
   // Hide lights div when the let's rock transition has ended
-  $letsRock.on('transitionend', function() {
-    $lights.css('display', 'none');
-  });
+  $letsRock
+    .on('transitionend', hideLightsDiv)
+    .on('webkitTransitionEnd', hideLightsDiv);
+
+  // Functions for handling animation events
+  function showText() {
+    updateCss($title, 'opacity', '1.0');
+    updateCss($letsRock, 'opacity', '1.0');
+  }
+
+  function hideLightsDiv() {
+    updateCss($lights, 'display', 'none');
+  }
+
+  function updateCss(element, property, value) {
+    element.css(property, value);
+  }
 
 }(jQuery));
