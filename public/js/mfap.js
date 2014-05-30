@@ -12,6 +12,7 @@
   $lights.on('animationend', function() {
     $title.css('opacity', '1.0');
     $letsRock.css('opacity', '1.0');
+    $lights.css('display', 'none');
   });
 
 }(jQuery));
