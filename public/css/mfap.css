@@ -24,6 +24,11 @@ body {
   font-size: 3em;
   text-align: center;
   color: white;
+
+
+  transition-property: opacity;
+  transition-duration: 3s;
+  opacity: 0.0;
 }
 
 #footer {
@@ -67,10 +72,10 @@ body {
 }
 
 .turn-lights-on {
-  animation-duration: 5s;
+  animation-duration: 4s;
   animation-name: turn-lights-on-anim;
 
-  -webkit-animation-duration: 5s;
+  -webkit-animation-duration: 4s;
   -webkit-animation-name: turn-lights-on-anim;
 }
 
