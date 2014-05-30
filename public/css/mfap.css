@@ -44,6 +44,10 @@ body {
   opacity: 0.0;
 }
 
+#lets-rock:hover {
+  cursor: pointer;
+}
+
 #footer {
   position: absolute;
   bottom: 0;
