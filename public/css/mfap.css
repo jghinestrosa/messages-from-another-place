@@ -41,10 +41,7 @@ body {
 }
 
 #title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  display: block;
   margin-top: 20px;
   font-size: 3em;
   text-align: center;
@@ -57,12 +54,16 @@ body {
   opacity: 0.0;
 }
 
-#lets-rock {
-  position: absolute;
-  top: 10em;
+#lets-rock-wrapper {
+  display: block;
+  margin-top: 15em;
   width: 100%;
-  font-size: 2em;
   text-align: center;
+}
+
+#lets-rock {
+  display: inline;
+  font-size: 2em;
   color: white;
 
   transition-property: opacity;
@@ -70,6 +71,7 @@ body {
   -webkit-transition-property: opacity;
   -webkit-transition-duration: 3s;
   opacity: 0.0;
+
 }
 
 #lets-rock:hover {
@@ -134,19 +136,19 @@ body {
 @keyframes turn-lights-on-anim {
   from {
     opacity: 1.0;
-  }
+}
 
-  to {
-    opacity: 0.0;
-  }
+to {
+  opacity: 0.0;
+}
 }
 
 @-webkit-keyframes turn-lights-on-anim {
   from {
     opacity: 1.0;
-  }
+}
 
-  to {
-   opacity: 0.0;
-  }
+to {
+  opacity: 0.0;
+}
 }
