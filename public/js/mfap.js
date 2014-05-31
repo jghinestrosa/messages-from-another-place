@@ -6,7 +6,7 @@
   var $lights = $('#lights');
   var $letsRock = $('#lets-rock');
 
-  /* Events*/
+  /* Animation events*/
 
   // Show title when the lights animation has ended
   $lights
@@ -29,7 +29,6 @@
   }
 
   function showLetsRock() {
-    console.log('hola');
     updateCss($letsRock, 'opacity', '1.0');
   }
 
@@ -40,5 +39,16 @@
   function updateCss(element, property, value) {
     element.css(property, value);
   }
+
+  /** Rest of events **/
+
+  // Flip text when "Let's rock" is clicked
+  $letsRock.on('click', function(){
+    updateCss($title, 'transform', 'scaleX(-1)');
+    updateCss($letsRock, 'transform', 'scaleX(-1)');
+    updateCss($title, '-webkit-transform', 'scaleX(-1)');
+    updateCss($letsRock, '-webkit-transform', 'scaleX(-1)');
+  });
+
 
 }(jQuery));
