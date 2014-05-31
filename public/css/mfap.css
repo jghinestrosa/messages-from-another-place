@@ -11,11 +11,18 @@ body {
 }
 
 #shadow {
-  height: 20px;
+  height: 80px;
   width: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 50px;
   background: #000000;
+
+  transform: perspective(600px) rotateY(45deg) rotateX(45deg);
 }
 
+}
 #curtains {
   position: absolute;
   width: 100%;
