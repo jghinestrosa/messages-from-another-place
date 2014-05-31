@@ -20,9 +20,9 @@ body {
   background: #000000;
 
   transform: perspective(600px) rotateY(45deg) rotateX(45deg);
+  -webkit-transform: perspective(600px) rotateY(45deg) rotateX(45deg);
 }
 
-}
 #curtains {
   position: absolute;
   width: 100%;
@@ -134,21 +134,19 @@ body {
 @keyframes turn-lights-on-anim {
   from {
     opacity: 1.0;
-}
+  }
 
-to {
-  opacity: 0.0;
-}
-
+  to {
+    opacity: 0.0;
+  }
 }
 
 @-webkit-keyframes turn-lights-on-anim {
   from {
     opacity: 1.0;
-}
+  }
 
-to {
-  opacity: 0.0;
-}
-
+  to {
+   opacity: 0.0;
+  }
 }
