@@ -2,9 +2,10 @@
 
   /* Variables */
 
-  var $title = $('#title');
-  var $lights = $('#lights');
-  var $letsRock = $('#lets-rock');
+  var $title = $('#title'),
+      $lights = $('#lights'), 
+      $blueLights = $('#blue-lights'),
+      $letsRock = $('#lets-rock');
 
   /* Animation events*/
 
@@ -17,13 +18,20 @@
   $title
     .on('transitionend', showLetsRock)
     .on('webkitTransitionEnd', showLetsRock);
+    
 
   // Hide lights div when the Let's Rock transition has ended
   $letsRock
-    .on('transitionend', hideLightsDiv)
-    .on('webkitTransitionEnd', hideLightsDiv);
+    .on('transitionend', handleLetsRockTransitions)
+    .on('webkitTransitionEnd', handleLetsRockTransitions);
+  
+  // Remove flashing lights when the flashing and flipping animation end
+  $letsRock
+    .on('animationend', removeFlashingLights)
+    .on('webkitAnimationEnd', removeFlashingLights);
 
   // Functions for handling animation events
+  
   function showTitle() {
     updateCss($title, 'opacity', '1.0');
   }
@@ -32,8 +40,17 @@
     updateCss($letsRock, 'opacity', '1.0');
   }
 
-  function hideLightsDiv() {
-    updateCss($lights, 'display', 'none');
+  function handleLetsRockTransitions(e) {
+    var property = e.originalEvent.propertyName;
+
+    if (property === 'opacity') {
+      keepLightsOn();
+    }
+  }
+
+  function keepLightsOn() {
+    $lights.removeClass('turn-lights-on');
+    $lights.hide();
   }
 
   function updateCss(element, property, value) {
@@ -44,11 +61,27 @@
 
   // Flip text when "Let's rock" is clicked
   $letsRock.on('click', function(){
-    updateCss($title, 'transform', 'scaleX(-1)');
-    updateCss($letsRock, 'transform', 'scaleX(-1)');
-    updateCss($title, '-webkit-transform', 'scaleX(-1)');
-    updateCss($letsRock, '-webkit-transform', 'scaleX(-1)');
+    setFlashingLights();
+    flipText();
   });
 
+  function setFlashingLights() {
+    $lights.show();
+    $blueLights.show();
+    $lights.addClass('flashing-lights');
+    $blueLights.addClass('flashing-blue-lights');
+  }
+
+  function removeFlashingLights() {
+    $lights.hide();
+    $blueLights.hide();
+    $lights.removeClass('flashing-lights');
+    $blueLights.removeClass('flashing-blue-lights');
+  }
+
+  function flipText() {
+    $title.addClass('flipping-text');
+    $letsRock.addClass('flipping-text');
+  }
 
 }(jQuery));
