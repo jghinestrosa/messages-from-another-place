@@ -16,7 +16,6 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000;
 
   transition-property: opacity;
   transition-duration: 3s;
@@ -25,22 +24,14 @@ html, body {
   opacity: 0.0;
 }
 
-#spotlight {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.dimmed.spotlight {
+  background: -moz-radial-gradient(center, circle cover, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 26%, rgba(0,0,0,1) 100%);
+  background: -webkit-radial-gradient(center, circle cover, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 25%,rgba(0,0,0,1) 26%,rgba(0,0,0,1) 100%);
+  background: radial-gradient(circle at center, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,1) 26%,rgba(0,0,0,1) 100%);
+}
 
-  background: -moz-radial-gradient(center, circle cover, rgba(174,188,191,1) 0%, rgba(110,119,116,1) 25%, rgba(10,14,10,0) 26%, rgba(10,8,9,0) 100%);
-  background: -webkit-radial-gradient(center, circle cover, rgba(174,188,191,1) 0%,rgba(110,119,116,1) 25%,rgba(10,14,10,0) 26%,rgba(10,8,9,0) 100%);
-  background: radial-gradient(circle at center, rgba(174,188,191,1) 0%,rgba(110,119,116,1) 25%,rgba(10,14,10,0) 26%,rgba(10,8,9,0) 100%);
-
-  transition-property: opacity;
-  transition-duration: 3s;
-  -webkit-transition-property: opacity;
-  -webkit-transition-duration: 3s;
-  opacity: 0.0;
+#floor .dimmed {
+  background: #000;
 }
 
 #shadow {

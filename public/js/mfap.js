@@ -22,7 +22,7 @@
     .on('transitionend', dimRoom)
     .on('webkitTransitionEnd', dimRoom);
     
-  $spotlight
+  $dimmed
     .on('transitionend', showLetsRock)
     .on('webkitTransitionEnd', showLetsRock);
 
