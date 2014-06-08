@@ -6,7 +6,8 @@
       $lights = $('#lights'), 
       $blueLights = $('#blue-lights'),
       $letsRock = $('#lets-rock'),
-      $curtains = $('#curtains'),
+      $curtains = $('.curtains'),
+      $dimmed = $('.dimmed'),
       $spotlight = $('#spotlight');
 
   /* Animation events*/
@@ -18,8 +19,8 @@
 
   // Show Let's Rock div when the title transition has ended
   $title
-    .on('transitionend', prueba)
-    .on('webkitTransitionEnd', prueba);
+    .on('transitionend', dimRoom)
+    .on('webkitTransitionEnd', dimRoom);
     
   $spotlight
     .on('transitionend', showLetsRock)
@@ -38,11 +39,11 @@
   // Functions for handling animation events
   
   function turnSpotlightOn() {
-    updateCss($spotlight, 'opacity', '1.0');
+    updateCss($spotlight, 'opacity', '0.2');
   }
 
-  function prueba() {
-    updateCss($curtains, 'opacity', '0.7');
+  function dimRoom() {
+    updateCss($dimmed, 'opacity', '0.4');
     turnSpotlightOn();
   }
 
