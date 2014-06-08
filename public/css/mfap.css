@@ -108,9 +108,11 @@ body {
 
 #lets-rock-wrapper {
   display: block;
-  margin-top: 15em;
   width: 100%;
   text-align: center;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
 }
 
 #lets-rock {
