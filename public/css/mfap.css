@@ -35,17 +35,30 @@ html, body {
 }
 
 #shadow {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 75%;
   height: 80px;
   width: 40px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-top: 15%;
   background: #000000;
-  opacity: 0.2;
+  opacity: 0.4;
 
   transform: perspective(600px) rotateY(45deg) rotateX(45deg);
   -webkit-transform: perspective(600px) rotateY(45deg) rotateX(45deg);
+
+  animation-duration: 40s;
+  animation-name: shadow-anim;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+
+  -webkit-animation-duration: 40s;
+  -webkit-animation-name: shadow-anim;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+
 }
 
 .curtains {
@@ -320,4 +333,52 @@ to {
 30%, 45%, 70%, 85%, 100% {
   opacity: 0.0;
 }
+}
+
+@keyframes shadow-anim {
+0% {
+    left: 0%;
+    opacity: 0.0;
+  }
+
+  34% {
+    opacity: 0.0;
+  }
+
+  35%, 69% {
+    opacity: 0.4;
+  }
+
+  70% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 0.0;
+    left: 95%;
+  }
+}
+
+@-webkit-keyframes shadow-anim {
+  0% {
+    left: 0%;
+    opacity: 0.0;
+  }
+
+  34% {
+    opacity: 0.0;
+  }
+
+  35%, 69% {
+    opacity: 0.4;
+  }
+
+  70% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 0.0;
+    left: 95%;
+  }
 }

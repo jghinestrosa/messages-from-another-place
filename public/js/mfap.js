@@ -8,7 +8,7 @@
       $letsRock = $('#lets-rock'),
       $curtains = $('.curtains'),
       $dimmed = $('.dimmed'),
-      $spotlight = $('#spotlight');
+      $shadow = $('#shadow');
 
   /* Animation events*/
 
@@ -38,13 +38,13 @@
 
   // Functions for handling animation events
   
-  function turnSpotlightOn() {
-    updateCss($spotlight, 'opacity', '0.2');
+  function dimRoom() {
+    updateCss($dimmed, 'opacity', '0.8');
+    showShadow();
   }
 
-  function dimRoom() {
-    updateCss($dimmed, 'opacity', '0.4');
-    turnSpotlightOn();
+  function showShadow() {
+    $shadow.show();
   }
 
   function showTitle() {
