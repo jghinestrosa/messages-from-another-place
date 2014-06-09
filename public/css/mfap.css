@@ -79,9 +79,6 @@ html, body {
 }
 
 #wrapper .curtains {
-  /*position: absolute;*/
-  /*top: 0;*/
-  /*left: 0;*/
   position: absolute;
   top: 0;
   left: 0;
@@ -112,12 +109,40 @@ html, body {
   opacity: 0.0;
 }
 
-#lets-rock-wrapper {
+#diane {
   display: block;
+  position: absolute;
+  top: 50%;
   width: 100%;
   text-align: center;
+  font-size: 2em;
+  color: white;
+
+  transition-property: opacity;
+  transition-duration: 3s;
+  -webkit-transition-property: opacity;
+  -webkit-transition-duration: 3s;
+  opacity: 0.0;
+}
+
+#diane span {
+  opacity: 0.0;
+  animation-duration: 3s;
+  animation-name: dot-anim;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-name: dot-anim;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+}
+
+#lets-rock-wrapper {
+  display: block;
   position: absolute;
   bottom: 0;
+  width: 100%;
+  text-align: center;
   margin-bottom: 10px;
 }
 
@@ -336,49 +361,69 @@ to {
 }
 
 @keyframes shadow-anim {
-0% {
+  0% {
     left: 0%;
     opacity: 0.0;
-  }
+}
 
-  34% {
-    opacity: 0.0;
-  }
+34% {
+  opacity: 0.0;
+}
 
-  35%, 69% {
-    opacity: 0.4;
-  }
+35%, 69% {
+  opacity: 0.4;
+}
 
-  70% {
-    opacity: 0.0;
-  }
+70% {
+  opacity: 0.0;
+}
 
-  100% {
-    opacity: 0.0;
-    left: 95%;
-  }
+100% {
+  opacity: 0.0;
+  left: 95%;
+}
 }
 
 @-webkit-keyframes shadow-anim {
   0% {
     left: 0%;
     opacity: 0.0;
-  }
+}
 
-  34% {
+34% {
+  opacity: 0.0;
+}
+
+35%, 69% {
+  opacity: 0.4;
+}
+
+70% {
+  opacity: 0.0;
+}
+
+100% {
+  opacity: 0.0;
+  left: 95%;
+}
+}
+
+@keyframes dot-anim {
+  0% {
     opacity: 0.0;
-  }
+}
 
-  35%, 69% {
-    opacity: 0.4;
-  }
+100% {
+  opacity: 1.0;
+}
+}
 
-  70% {
+@-webkit-keyframes dot-anim {
+  0% {
     opacity: 0.0;
-  }
+}
 
-  100% {
-    opacity: 0.0;
-    left: 95%;
-  }
+100% {
+  opacity: 1.0;
+}
 }

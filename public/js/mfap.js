@@ -8,7 +8,8 @@
       $letsRock = $('#lets-rock'),
       $curtains = $('.curtains'),
       $dimmed = $('.dimmed'),
-      $shadow = $('#shadow');
+      $shadow = $('#shadow'),
+      $diane = $('#diane');
 
   /* Animation events*/
 
@@ -33,8 +34,8 @@
   
   // Remove flashing lights when the flashing and flipping animation end
   $letsRock
-    .on('animationend', removeFlashingLights)
-    .on('webkitAnimationEnd', removeFlashingLights);
+    .on('animationend', prepareForRecording)
+    .on('webkitAnimationEnd', prepareForRecording);
 
   // Functions for handling animation events
   
@@ -72,10 +73,21 @@
     element.css(property, value);
   }
 
+  function prepareForRecording() {
+    removeFlashingLights();
+
+    //TODO Ask for recording permission
+
+    showDianeMessage();
+
+    //TODO Start recording...
+  }
+
   /** Rest of events **/
 
   // Flip text when "Let's rock" is clicked
   $letsRock.on('click', function(){
+    illuminateRoom();
     setFlashingLights();
     flipText();
   });
@@ -97,6 +109,15 @@
   function flipText() {
     $title.addClass('flipping-text');
     $letsRock.addClass('flipping-text');
+  }
+
+  function illuminateRoom() {
+    $shadow.hide();
+    $dimmed.hide();
+  }
+
+  function showDianeMessage() {
+    updateCss($diane, 'opacity', '1.0');
   }
 
 }(jQuery));
