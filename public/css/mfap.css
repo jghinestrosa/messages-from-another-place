@@ -109,7 +109,7 @@ html, body {
   opacity: 0.0;
 }
 
-#diane {
+.records-wrapper {
   display: block;
   position: absolute;
   top: 50%;
@@ -117,7 +117,13 @@ html, body {
   text-align: center;
   font-size: 2em;
   color: white;
+}
 
+#records {
+  display: none;
+}
+
+#diane {
   transition-property: opacity;
   transition-duration: 3s;
   -webkit-transition-property: opacity;
