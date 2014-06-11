@@ -39,15 +39,16 @@ html, body {
   position: absolute;
   top: 50%;
   left: 75%;
-  height: 80px;
-  width: 40px;
+  height: 150px;
+  width: 100px;
   background: #000000;
-  opacity: 0.4;
+  background-blend-mode: overlay;
+  /*opacity: 0.4;*/
 
   transform: perspective(600px) rotateY(45deg) rotateX(45deg);
   -webkit-transform: perspective(600px) rotateY(45deg) rotateX(45deg);
 
-  animation-duration: 40s;
+  animation-duration: 30s;
   animation-name: shadow-anim;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
@@ -84,6 +85,8 @@ html, body {
   left: 0;
   width: 100%;
   height: 80%;
+
+  overflow: hidden;
 }
 
 #content {

@@ -55,7 +55,7 @@
   $letsRock.on('click', startRecordingAnimation);
 
   function dimRoom() {
-    updateCss($dimmed, 'opacity', '0.8');
+    updateCss($dimmed, 'opacity', '0.5');
     showShadow();
   }
 
