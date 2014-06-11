@@ -25,9 +25,9 @@ html, body {
 }
 
 .dimmed.spotlight {
-  background: -moz-radial-gradient(center, circle cover, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 26%, rgba(0,0,0,1) 100%);
-  background: -webkit-radial-gradient(center, circle cover, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 25%,rgba(0,0,0,1) 26%,rgba(0,0,0,1) 100%);
-  background: radial-gradient(circle at center, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,1) 26%,rgba(0,0,0,1) 100%);
+  background: -moz-radial-gradient(center, circle cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,1) 29%, rgba(0,0,0,1) 100%);
+  background: -webkit-radial-gradient(center, circle cover, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,1) 29%,rgba(0,0,0,1) 100%);
+  background: radial-gradient(circle at center, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,1) 29%,rgba(0,0,0,1) 100%);
 }
 
 #floor .dimmed {
