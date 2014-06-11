@@ -1,4 +1,4 @@
-(function($) { 
+(function($, navigator, Recorder) { 
 
   /* Variables */
 
@@ -9,7 +9,19 @@
       $curtains = $('.curtains'),
       $dimmed = $('.dimmed'),
       $shadow = $('#shadow'),
-      $diane = $('#diane');
+      $diane = $('#diane'),
+      $records = $('#records');
+
+  /* Variables for the audio recording process */
+
+  var recorder,
+      audio = $('audio')[0],
+      a = $('a')[0];
+
+  // Set up getUserMedia, AudioContext and URL
+  navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+  window.URL = window.URL || window.webkitURL;
 
   /* Animation events*/
 
@@ -37,8 +49,11 @@
     .on('animationend', prepareForRecording)
     .on('webkitAnimationEnd', prepareForRecording);
 
-  // Functions for handling animation events
-  
+  /* Click events */
+
+  // Flip text when "Let's rock" is clicked
+  $letsRock.on('click', startRecordingAnimation);
+
   function dimRoom() {
     updateCss($dimmed, 'opacity', '0.8');
     showShadow();
@@ -73,24 +88,13 @@
     element.css(property, value);
   }
 
-  function prepareForRecording() {
-    removeFlashingLights();
 
-    //TODO Ask for recording permission
-
-    showDianeMessage();
-
-    //TODO Start recording...
-  }
-
-  /** Rest of events **/
-
-  // Flip text when "Let's rock" is clicked
-  $letsRock.on('click', function(){
+  function startRecordingAnimation() {
+    $records.hide();
     illuminateRoom();
     setFlashingLights();
     flipText();
-  });
+  }
 
   function setFlashingLights() {
     $lights.show();
@@ -111,6 +115,13 @@
     $letsRock.addClass('flipping-text');
   }
 
+  function restoreTextOrientation() {
+    $title.removeClass('flipping-text');
+    $letsRock.removeClass('flipping-text');
+    updateCss($title, 'transform', 'scaleX(1)');
+    updateCss($letsRock, 'transform', 'scaleX(1)');
+  }
+
   function illuminateRoom() {
     $shadow.hide();
     $dimmed.hide();
@@ -120,4 +131,84 @@
     updateCss($diane, 'opacity', '1.0');
   }
 
-}(jQuery));
+  /* Audio recording process */
+
+  function prepareForRecording() {
+    removeFlashingLights();
+    askForRecordingPermission();
+  }
+
+  function askForRecordingPermission() {
+    if (!recorder) {
+      if (navigator.getUserMedia) {
+        navigator.getUserMedia({audio:true}, startRecordingProcess, function(error) {
+          console.log('Error: ' + error);
+        });
+      }
+    }
+    else {
+      showDianeMessage();
+      startRecording();
+    }
+  }
+
+  // Show "Diane..." message and start recording
+  function startRecordingProcess(stream) {
+    initializeRecorder(stream);
+    showDianeMessage();
+    startRecording();
+  }
+
+  // Initialize Recorder object for the first time
+  function initializeRecorder(stream) {
+    var audioContext = new AudioContext();
+    var input = audioContext.createMediaStreamSource(stream);
+
+    recorder = new Recorder(input, {workerPath:'js/recorderWorker.js'});
+  }
+
+  function startRecording(e) {
+    if (!recorder) {
+      return;
+    }
+
+    recorder.record();
+
+    $diane.show();
+    $letsRock.off('click');
+    $letsRock.on('click', stopRecording);
+  }
+
+  function stopRecording(e) {
+    if (!recorder) {
+      return;
+    }
+
+    recorder.stop();
+    $diane.hide();
+    createWAV();
+    $records.show();
+    recorder.clear();
+
+    restoreTextOrientation();
+
+    $letsRock.off('click');
+    $letsRock.on('click', startRecordingAnimation);
+  }
+
+  // Create WAV file, load it in the audio player
+  // and set up a download link
+  function createWAV() {
+    if (!recorder) {
+      return;
+    }
+
+    recorder.exportWAV(function(blob) {
+      var url = URL.createObjectURL(blob);
+      audio.src = url;
+      a.href = url;
+      a.download = 'message.wav';
+    });
+  }
+
+}(jQuery, navigator, Recorder));
