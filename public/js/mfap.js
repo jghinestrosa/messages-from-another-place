@@ -1,4 +1,4 @@
-(function($, navigator, Recorder) { 
+(function($, window, navigator, Recorder) { 
 
   /* Variables */
 
@@ -164,6 +164,11 @@
     var audioContext = new AudioContext();
     var input = audioContext.createMediaStreamSource(stream);
 
+    // Hack for Firefox - Prevent the action of garbage collector
+    if (navigator.userAgent.indexOf('Firefox') !== -1) {
+      window.audioInputHackForFirefox = input;
+    }
+
     recorder = new Recorder(input, {workerPath:'js/recorderWorker.js'});
   }
 
@@ -211,4 +216,4 @@
     });
   }
 
-}(jQuery, navigator, Recorder));
+}(jQuery, window, navigator, Recorder));
