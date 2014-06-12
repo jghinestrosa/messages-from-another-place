@@ -201,7 +201,6 @@ html, body {
   bottom: 0;
   width: 100%;
   text-align: center;
-  margin-bottom: 10px;
 }
 
 #lets-rock {
@@ -335,6 +334,55 @@ html, body {
   -webkit-animation-iteration-count: 5;
   -webkit-animation-timing-function: steps(3);
   -webkit-animation-fill-mode: forwards;
+}
+
+@media screen 
+and (max-width : 1024px){
+  #lets-rock {
+    color: #ca3359;
+}
+}
+
+@media screen 
+and (max-width : 640px) {
+  #title {
+    font-size: 2em;
+}
+#floor .curtains {
+  height: 24px;
+}
+
+#combined-zigzag {
+  background:
+  linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 12px 0,
+  linear-gradient(315deg, #4c2c1f 25%, transparent 25%) 12px 0;
+  background-size: 24px 24px;
+}
+
+#zigzag {
+  background: linear-gradient(135deg, #4c2c1f 25%, transparent 25%),
+  linear-gradient(225deg, #4c2c1f 25%, transparent 25%),
+  linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 12px 0,
+  linear-gradient(315deg, #4c2c1f 25%, transparent 25%) 12px 0;
+  background-size: 24px 24px;
+  background-color: #c1824f;
+}
+
+  #shadow {
+    height: 90px;
+    width: 50px;
+  }
+
+}
+
+@media screen 
+and (max-width : 320px) {
+  #title {
+    font-size: 1.7em;
+}
+#lets-rock {
+  font-size: 1.7em;
+}
 }
 
 /* Animations */
