@@ -244,10 +244,9 @@ html, body {
   left: 0;
   width: 100%;
   height: 50px;
-
-  background:
-  linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 25px 0,
-  linear-gradient(315deg, #4c2c1f 25%, transparent 25%) 25px 0;
+  background: -moz-linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 25px 0, -moz-linear-gradient(135deg, #4c2c1f 25%, transparent 25%) 25px 0;
+  background: -webkit-linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 25px 0, -webkit-linear-gradient(135deg, #4c2c1f 25%, transparent 25%) 25px 0;
+  background: linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 25px 0, linear-gradient(315deg, #4c2c1f 25%, transparent 25%) 25px 0;
   background-size: 50px 50px;
 }
 
@@ -258,6 +257,7 @@ html, body {
   width: 100%;
   height: 100%;
 
+  background: -webkit-linear-gradient(315deg, #4c2c1f 25%, transparent 25%), -webkit-linear-gradient(225deg, #4c2c1f 25%, transparent 25%), -webkit-linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 25px 0, -webkit-linear-gradient(135deg, #4c2c1f 25%, transparent 25%) 25px 0;
   background: linear-gradient(135deg, #4c2c1f 25%, transparent 25%),
   linear-gradient(225deg, #4c2c1f 25%, transparent 25%),
   linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 25px 0,
@@ -374,10 +374,10 @@ and (max-width : 640px) {
   background-color: #c1824f;
 }
 
-  #shadow {
-    height: 90px;
-    width: 50px;
-  }
+#shadow {
+  height: 90px;
+  width: 50px;
+}
 
 }
 
