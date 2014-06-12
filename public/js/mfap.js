@@ -44,7 +44,7 @@
     .on('transitionend', handleLetsRockTransitions)
     .on('webkitTransitionEnd', handleLetsRockTransitions);
   
-  // Remove flashing lights when the flashing and flipping animation end
+  // Remove flashing lights when the flashing and flipping animations end
   $letsRock
     .on('animationend', prepareForRecording)
     .on('webkitAnimationEnd', prepareForRecording);
@@ -135,6 +135,14 @@
 
   function prepareForRecording() {
     removeFlashingLights();
+
+    $letsRock.off('click');
+    $letsRock.on('click', function() {
+      restoreTextOrientation();
+      $(this).off('click');
+      $(this).on('click', startRecordingAnimation);
+    });
+
     askForRecordingPermission();
   }
 
