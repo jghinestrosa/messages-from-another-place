@@ -341,6 +341,11 @@ and (max-width : 1024px){
   #lets-rock {
     color: #ca3359;
 }
+/* Fix black line in some devices */
+#floor {
+  margin-bottom: 1px;
+}
+
 }
 
 @media screen 
