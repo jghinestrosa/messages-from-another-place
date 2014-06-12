@@ -12,6 +12,13 @@
   src: local('Cedarville Cursive'), local('Cedarville-Cursive'), url(http://themes.googleusercontent.com/static/fonts/cedarvillecursive/v4/cuCe6HrkcqrWTWTUE7dw-5zpMnghKP_wiJrQSyqob5U.woff) format('woff');
 }
 
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Titillium WebItalic'), local('TitilliumWeb-Italic'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/r9OmwyQxrgzUAhaLET_KO5amZRho2btt1t2XfPnvt5c.woff) format('woff');
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -166,6 +173,13 @@ html, body {
   transition-duration: 3s;
   -webkit-transition-property: opacity;
   -webkit-transition-duration: 3s;
+  font-family: 'Titillium Web', sans-serif;
+  font-style:italic;
+  text-shadow:
+  -1px -1px 0 #000000,  
+  1px -1px 0 #000000,
+  -1px 1px 0 #000000,
+  1px 1px 0 #000000;
   opacity: 0.0;
 }
 
