@@ -169,6 +169,7 @@ html, body {
 }
 
 #diane {
+  display: none;
   transition-property: opacity;
   transition-duration: 3s;
   -webkit-transition-property: opacity;
@@ -343,7 +344,7 @@ and (max-width : 1024px){
 }
 /* Fix black line in some devices */
 #floor {
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 
 }
