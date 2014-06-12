@@ -5,6 +5,13 @@
   src: local('Oswald Regular'), local('Oswald-Regular'), url(http://themes.googleusercontent.com/static/fonts/oswald/v8/-g5pDUSRgvxvOl5u-a_WHw.woff) format('woff');
 }
 
+@font-face {
+  font-family: 'Cedarville Cursive';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cedarville Cursive'), local('Cedarville-Cursive'), url(http://themes.googleusercontent.com/static/fonts/cedarvillecursive/v4/cuCe6HrkcqrWTWTUE7dw-5zpMnghKP_wiJrQSyqob5U.woff) format('woff');
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -186,6 +193,7 @@ html, body {
 #lets-rock {
   display: inline-block;
   font-size: 2em;
+  font-family: 'Cedarville Cursive', cursive;
   color: white;
 
   transition-property: opacity, color, text-shadow;
