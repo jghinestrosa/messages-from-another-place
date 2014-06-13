@@ -373,6 +373,11 @@ and (max-width : 640px) {
   height: 90px;
   width: 50px;
 }
+
+.records-wrapper {
+  font-size: 1.5em;
+}
+
 }
 
 @media screen 
