@@ -154,6 +154,13 @@ html, body {
 
 #records {
   display: none;
+  position: relative;
+  width: 20%;
+  margin: 0 auto;
+}
+
+audio {
+  width: 100%;
 }
 
 #diane {
@@ -366,7 +373,6 @@ and (max-width : 640px) {
   height: 90px;
   width: 50px;
 }
-
 }
 
 @media screen 
