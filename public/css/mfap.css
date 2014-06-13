@@ -1,23 +1,8 @@
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Oswald Regular'), local('Oswald-Regular'), url(http://themes.googleusercontent.com/static/fonts/oswald/v8/-g5pDUSRgvxvOl5u-a_WHw.woff) format('woff');
-}
+@import url(http://fonts.googleapis.com/css?family=Oswald);
 
-@font-face {
-  font-family: 'Cedarville Cursive';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Cedarville Cursive'), local('Cedarville-Cursive'), url(http://themes.googleusercontent.com/static/fonts/cedarvillecursive/v4/cuCe6HrkcqrWTWTUE7dw-5zpMnghKP_wiJrQSyqob5U.woff) format('woff');
-}
+@import url(http://fonts.googleapis.com/css?family=Cedarville+Cursive);
 
-@font-face {
-  font-family: 'Titillium Web';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Titillium WebItalic'), local('TitilliumWeb-Italic'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/r9OmwyQxrgzUAhaLET_KO5amZRho2btt1t2XfPnvt5c.woff) format('woff');
-}
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400italic);
 
 html, body {
   margin: 0;
