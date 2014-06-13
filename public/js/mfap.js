@@ -10,7 +10,8 @@
       $dimmed = $('.dimmed'),
       $shadow = $('#shadow'),
       $diane = $('#diane'),
-      $records = $('#records');
+      $records = $('#records'),
+      $diary = $('#diary');
 
   /* Variables for the audio recording process */
 
@@ -171,6 +172,10 @@
         navigator.getUserMedia({audio:true}, startRecordingProcess, function(error) {
           console.log('Error: ' + error);
         });
+      }
+      else {
+          updateCss($diary, 'opacity', '1.0');
+          $diary.show();
       }
     }
     else {
