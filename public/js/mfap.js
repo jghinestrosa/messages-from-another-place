@@ -55,12 +55,35 @@
   $letsRock.on('click', startRecordingAnimation);
 
   function dimRoom() {
-    updateCss($dimmed, 'opacity', '0.5');
+    dimCurtains();
     showShadow();
   }
 
+  function dimCurtains() {
+    // Show destroys the opacity transition except in IE
+    //$dimmed.show();
+    updateCss($dimmed, 'opacity', '0.5');
+  }
+
   function showShadow() {
+    $shadow.addClass('movement');
     $shadow.show();
+  }
+
+  function illuminateRoom() {
+    illuminateCurtains();
+    hideShadow();
+  }
+
+  function illuminateCurtains() {
+    // Hide destroys the opacity transition except in IE
+    //$dimmed.hide();
+    updateCss($dimmed, 'opacity', '0.0');
+  }
+
+  function hideShadow() {
+    $shadow.removeClass('movement');
+    $shadow.hide();
   }
 
   function showTitle() {
@@ -87,7 +110,6 @@
   function updateCss(element, property, value) {
     element.css(property, value);
   }
-
 
   function startRecordingAnimation() {
     $records.hide();
@@ -122,11 +144,6 @@
     updateCss($letsRock, 'transform', 'scaleX(1)');
   }
 
-  function illuminateRoom() {
-    $shadow.hide();
-    $dimmed.hide();
-  }
-
   function showDianeMessage() {
     updateCss($diane, 'opacity', '1.0');
   }
@@ -134,7 +151,9 @@
   /* Audio recording process */
 
   function prepareForRecording() {
+    //$dimmed.show(); //TODO Fix
     removeFlashingLights();
+    dimRoom();
 
     $letsRock.off('click');
     $letsRock.on('click', function() {

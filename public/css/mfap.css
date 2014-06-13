@@ -17,6 +17,7 @@ html, body {
 }
 
 .dimmed {
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
@@ -51,6 +52,9 @@ html, body {
   transform: perspective(600px) rotateY(45deg) rotateX(45deg);
   -webkit-transform: perspective(600px) rotateY(45deg) rotateX(45deg);
 
+}
+
+#shadow.movement {
   animation-duration: 30s;
   animation-name: shadow-anim;
   animation-iteration-count: infinite;
@@ -62,7 +66,6 @@ html, body {
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-timing-function: linear;
-
 }
 
 #shadow .horizontal {
