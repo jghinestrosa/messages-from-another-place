@@ -65,15 +65,19 @@
 }
 
 .button.play {
-  top: 20%;
+  top: 10%;
 }
 
 .button.stop {
-  top: 40%;
+  top: 30%;
 }
 
 .button.record {
-  top: 60%;
+  top: 50%;
+}
+
+.button.eject {
+  top: 70%;
 }
 
 .play-icon {
@@ -104,6 +108,26 @@
   height: 50%;
   background: #ffffff;
   border-radius: 50%;
+}
+
+.eject-icon1 {
+  position: absolute;
+  top: 30%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background: linear-gradient(225deg, rgba(255,255,255,1) 50%, rgba(0,0,0,0) 50%);
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.eject-icon2 {
+  position: absolute;
+  bottom: 20%;
+  left: 25%;
+  width: 50%;
+  height: 10%;
+  background: #ffffff;
 }
 
 .red-light {
