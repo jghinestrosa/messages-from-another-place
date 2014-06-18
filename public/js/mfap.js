@@ -11,7 +11,12 @@
       $shadow = $('#shadow'),
       $diane = $('#diane'),
       $records = $('#records'),
-      $diary = $('#diary');
+      $diary = $('#diary'),
+      $tapeRecorder = $('#tape-recorder'),
+      $bPlay = $('.button.play'),
+      $bStop = $('.button.stop'),
+      $bRecord = $('.button.record'),
+      $tapeCircles = $('.tape-circle');
 
   /* Variables for the audio recording process */
 
@@ -145,11 +150,18 @@
     updateCss($letsRock, 'transform', 'scaleX(1)');
   }
 
-  function showDianeMessage() {
-    updateCss($diane, 'opacity', '1.0');
+  function showTapeRecorder() {
+    updateCss($tapeRecorder, 'opacity', '1.0');
   }
 
+  function startTapeAnimation() {
+    $tapeCircles.addClass('spin');
+  } 
+
   /* Audio recording process */
+
+  // The recording button of the tape recorder is clicked
+  $bRecord.on('click', askForRecordingPermission);
 
   function prepareForRecording() {
     //$dimmed.show(); //TODO Fix
@@ -163,7 +175,8 @@
       $(this).on('click', startRecordingAnimation);
     });
 
-    askForRecordingPermission();
+    //askForRecordingPermission();
+    showTapeRecorder();
   }
 
   function askForRecordingPermission() {
@@ -179,16 +192,16 @@
       }
     }
     else {
-      showDianeMessage();
+      startTapeAnimation();
       startRecording();
     }
   }
 
-  // Show "Diane..." message and start recording
+  // Start tape animation and start recording
   function startRecordingProcess(stream) {
     initializeRecorder(stream);
-    showDianeMessage();
-    startRecording();
+    startTapeAnimation();
+    //startRecording();
   }
 
   // Initialize Recorder object for the first time
