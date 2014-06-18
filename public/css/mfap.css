@@ -154,6 +154,7 @@ html, body {
   min-height: 100px;
   overflow: hidden;
   box-shadow: 1px 1px 5px #000000;
+
   transition-property: opacity;
   transition-duration: 3s;
   -webkit-transition-property: opacity;
@@ -388,8 +389,23 @@ and (max-width : 640px) {
   font-size: 1.5em;
 }
 
+#diary {
+  left: 5%;
+  width: 80%;
+  padding: 10px;
+}
+
+.diary-lines {
+  background-size: 100% 10px;
+}
+
 #diary-text {
-  font-size: 1.5em;
+  font-size: 1.4em;
+  line-height: 20px;
+}
+
+#diary-text p:nth-child(1) {
+  margin-bottom: 10px;
 }
 
 }
