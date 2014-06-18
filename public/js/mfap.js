@@ -57,10 +57,21 @@
     .on('animationend', prepareForRecording)
     .on('webkitAnimationEnd', prepareForRecording);
 
+  $diary.on('transitionend webkitTransitionEnd', function() {
+    if ($diary.css('opacity') === '0') {
+      $diary.hide();
+    }
+  });
+
   /* Click events */
 
   // Flip text when "Let's rock" is clicked
   $letsRock.on('click', startRecordingAnimation);
+
+  // Hide diary when is clicked
+  $diary.on('click', function() {
+    updateCss($diary, 'opacity', '0.0');
+  });
 
   function dimRoom() {
     dimCurtains();
@@ -210,8 +221,6 @@
       stopAudio();
     }
 
-    // Stop spin animation
-
   });
 
   $bPlay.on('click', function() {
@@ -248,8 +257,8 @@
         });
       }
       else {
-        updateCss($diary, 'opacity', '1.0');
         $diary.show();
+        updateCss($diary, 'opacity', '1.0');
       }
     }
     else {
