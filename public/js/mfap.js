@@ -80,7 +80,7 @@
 
   // Hide diary when is clicked
   $diary.on('click', function() {
-    updateCss($diary, 'opacity', '0.0');
+    $diary.css('opacity', '0.0');
   });
 
   function dimRoom() {
@@ -90,8 +90,12 @@
 
   function dimCurtains() {
     // Show destroys the opacity transition except in IE
-    //$dimmed.show();
-    updateCss($dimmed, 'opacity', '0.5');
+    $dimmed.show();
+
+    // Hack for Firefox and Webkit browsers
+    setTimeout(function() {
+      $dimmed.css('opacity', '0.5');
+    }, 50);
   }
 
   function showShadow() {
@@ -106,8 +110,8 @@
 
   function illuminateCurtains() {
     // Hide destroys the opacity transition except in IE
-    //$dimmed.hide();
-    updateCss($dimmed, 'opacity', '0.0');
+    $dimmed.hide();
+    $dimmed.css('opacity', '0.0');
   }
 
   function hideShadow() {
@@ -116,11 +120,11 @@
   }
 
   function showTitle() {
-    updateCss($title, 'opacity', '1.0');
+    $title.css('opacity', '1.0');
   }
 
   function showLetsRock() {
-    updateCss($letsRock, 'opacity', '1.0');
+    $letsRock.css('opacity', '1.0');
   }
 
   function handleLetsRockTransitions(e) {
@@ -134,10 +138,6 @@
   function keepLightsOn() {
     $lights.removeClass('turn-lights-on');
     $lights.hide();
-  }
-
-  function updateCss(element, property, value) {
-    element.css(property, value);
   }
 
   function startRecordingAnimation() {
@@ -169,22 +169,22 @@
   function restoreTextOrientation() {
     $title.removeClass('flipping-text');
     $letsRock.removeClass('flipping-text');
-    updateCss($title, 'transform', 'scaleX(1)');
-    updateCss($letsRock, 'transform', 'scaleX(1)');
+    $title.css('transform', 'scaleX(1)');
+    $letsRock.css('transform', 'scaleX(1)');
   }
 
   function showTapeRecorder() {
-    updateCss($tapeRecorder, 'display', 'inline-block');
+    $tapeRecorder.css('display', 'inline-block');
 
     // Hack for Firefox and Webkit browsers
     setTimeout(function() {
-      updateCss($tapeRecorder, 'opacity', '1.0');
+      $tapeRecorder.css('opacity', '1.0');
     }, 50);
   }
 
   function hideTapeRecorder() {
     listenTapeRecorderEvents(false);
-    updateCss($tapeRecorder, 'opacity', '0.0');
+    $tapeRecorder.css('opacity', '0.0');
   }
 
   function startTapeAnimation() {
@@ -198,11 +198,11 @@
   } 
 
   function turnOnRecordingLight() {
-    updateCss($redLight, 'background', '#f00');
+    $redLight.css('background', '#f00');
   } 
 
   function turnOffRecordingLight() {
-    updateCss($redLight, 'background', '#000');
+    $redLight.css('background', '#000');
   } 
 
   function isRecordingAudio() {
@@ -276,8 +276,8 @@
     $letsRock.on('click', function() {
       restoreTextOrientation();
       hideTapeRecorder();
-      $(this).off('click');
-      $(this).on('click', startRecordingAnimation);
+      $letsRock.off('click');
+      $letsRock.on('click', startRecordingAnimation);
     });
 
     //askForRecordingPermission();
@@ -293,7 +293,7 @@
       }
       else {
         $diary.show();
-        updateCss($diary, 'opacity', '1.0');
+        $diary.css('opacity', '1.0');
       }
     }
     else {
