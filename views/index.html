@@ -5,6 +5,7 @@
     <meta name="viewport" content="initial-scale=1">
     <title>Messages From Another Place</title>
     <link rel='stylesheet' href='css/mfap.css'>
+    <link rel='stylesheet' href='css/tapeRecorder.css'>
 
   </head>
   <body>
@@ -22,8 +23,33 @@
             <div id="records">
               <audio controls></audio><a><img src="img/tape.png"></a>
             </div>
-            <div id="diane">
-              Diane<span>...</span>
+            <div id="tape-recorder">
+              <div class="rectangle">
+                <div class="side front">
+                  <div class="red-light"></div>
+                  <div class="tape-place">
+                    <div class="tape-wrapper">
+                      <div class="tape-red-white"></div>
+                      <div class="tape-black"></div>
+                      <div class="tape-circle top"></div>
+                      <div class="tape-circle bottom"></div>
+                    </div>
+                    <div class="tape-lateral"></div>
+                  </div>
+                  <div class="speaker"></div>
+                </div>
+                <div class="side right">
+                  <div class="button play">
+                    <div class="play-icon"></div>
+                  </div>
+                  <div class="button stop">
+                    <div class="stop-icon"></div>
+                  </div>
+                  <div class="button record">
+                    <div class="record-icon"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div id="lets-rock-wrapper">
@@ -39,8 +65,8 @@
       </div>
     </div>
     <div id="diary" class="diary-lines">
-        <div id="diary-text">
-          It looks like Jupiter and Saturn haven't met yet... or maybe you're just using a web browser that does not support audio recording. Write it in your own diary.
+      <div id="diary-text">
+        It looks like Jupiter and Saturn haven't met yet... or maybe you're just using a web browser that does not support audio recording. Write it in your own diary.
       </div>
     </div>
     <div id="blue-lights"></div>

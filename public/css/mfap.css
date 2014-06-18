@@ -182,7 +182,7 @@ html, body {
 .records-wrapper {
   display: block;
   position: absolute;
-  top: 50%;
+  top: 30%;
   width: 100%;
   text-align: center;
   font-size: 2em;

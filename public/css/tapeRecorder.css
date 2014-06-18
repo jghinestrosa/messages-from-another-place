@@ -1,0 +1,204 @@
+#tape-recorder {
+  display: inline-block;
+  width: 150px;
+  height: 250px;
+  position: relative;
+  perspective: 1000px;
+}
+
+.rectangle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.side {
+  display: block;
+  position: absolute;
+  border: 2px solid gray;
+}
+
+.side.front {
+  height: 100%;
+  width: 100%;
+  background: black;
+  border-radius: 5% 0 0 5%;
+}
+
+.side.right {
+  width: 22%;
+  height: 100%;
+  left: 59px;
+  background: black;
+  border-radius: 0 5% 5% 0;
+}
+
+.front {
+  transform: rotateY(-55deg) translateZ(17px);
+}
+
+.right {
+  transform: rotateY(35deg) translateZ(77px);
+}
+
+.button {
+  border: 1px solid gray;
+  /*width: 30px; */
+  width: 70%; 
+  height: 0;
+  padding-bottom: 70%;
+  /*height: 30px; */
+  position: absolute;
+  background: black;
+  left: 15%;
+  box-shadow: -2px 2px 1px #222222;
+}
+
+.button.play {
+  top: 20%;
+}
+
+.button.stop {
+  top: 40%;
+}
+
+.button.record {
+  top: 60%;
+}
+
+.play-icon {
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  width: 50%;
+  height: 50%;
+  background: linear-gradient(225deg, rgba(255,255,255,1) 50%, rgba(0,0,0,0) 50%);
+  transform: rotate(45deg);
+}
+
+.stop-icon {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background: #ffffff;
+}
+
+.record-icon {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.red-light {
+  position: absolute;
+  top: 3%;
+  right: 25%;
+  width: 5%;
+  height: 5%;
+  border-radius: 50%;
+  background: #f00;
+  border: 3px solid #222222;
+}
+
+.tape-place {
+  position: absolute;
+  top: 10%;
+
+  height: 46%; 
+  width: 60%;
+  border: 1px solid white;
+}
+
+.tape-lateral {
+  position: absolute;
+  height: 100%;
+  width: 17%;
+  border-right: 1px solid gray;
+}
+
+.tape-wrapper {
+  position: absolute;
+  top: 14%;
+  left: 17%;
+  height: 71%;
+  width: 63%;
+}
+
+.tape-red-white {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(211,23,35,1) 0%,rgba(211,23,35,1) 66%,rgba(244,244,244,1) 66%,rgba(255,255,255,1) 100%);
+  border-radius: 10%;
+}
+
+.tape-white {
+  position: absolute;
+  right: 0;
+  width: 25%;
+  height: 100%;
+  background: white;
+  border-radius: 0 10% 10% 0;
+}
+
+.tape-black {
+  position: absolute;
+  right: 33%;
+  top: 35%;
+  width: 25%;
+  height: 30%;
+  background: black;
+}
+
+.tape-circle {
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  background:
+  radial-gradient(circle at center, rgba(0,0,0,1) 33%, rgba(0,0,0,0) 33%),
+  radial-gradient(circle at center, rgba(0,0,0,0) 50%, rgba(110,119,116,1) 50%),
+  linear-gradient(0deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 46%,rgba(0,0,0,1) 46%,rgba(0,0,0,1) 50%,rgba(0,0,0,0) 50%,rgba(0,0,0,0) 100%),
+  linear-gradient(90deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 46%,rgba(0,0,0,1) 46%,rgba(0,0,0,1) 54%,rgba(0,0,0,0) 54%,rgba(0,0,0,0) 100%),
+  linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 46%,rgba(0,0,0,1) 46%,rgba(0,0,0,1) 50%,rgba(0,0,0,0) 50%,rgba(0,0,0,0) 100%),
+  linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 46%,rgba(0,0,0,1) 46%,rgba(0,0,0,1) 50%,rgba(0,0,0,0) 50%,rgba(0,0,0,0) 100%),
+
+  radial-gradient(circle at center, rgba(0,0,0,0) 33%, rgba(109,158,175,1) 34%);
+  background-size: 23px 23px;
+  right: 25%;
+  border-radius: 50%;
+
+  transition-property: transform;
+  transition-duration: 8s;
+  transition-timing-function: linear;
+}
+
+.tape-circle.top {
+  top: 15%;
+}
+
+.tape-circle.bottom {
+  bottom: 15%;
+}
+
+.speaker {
+  position: absolute;
+  bottom: 3%;
+  height: 33%;
+  width: 92%;
+  border: 1px solid white;
+  background: radial-gradient(circle at center, rgba(63,63,63,1) 0%,rgba(63,63,63,1) 50%,rgba(10,14,10,1) 51%,rgba(10,8,9,1) 100%);
+  background-size: 5px 5px;
+
+  border-radius: 5%;
+
+}
+
+
+
