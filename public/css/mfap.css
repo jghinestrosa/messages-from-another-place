@@ -145,13 +145,15 @@ html, body {
 #diary {
   display: none;
   position: absolute;
-  top: 25%;
+  top: 30%;
   left: 25%;
   border: 1px solid #838383;
-  border-radius: 5%;
+  border-radius: 5% 0% 50% 0%;
+  padding: 17px;
   width: 50%;
   min-height: 100px;
   overflow: hidden;
+  box-shadow: 1px 1px 5px #000000;
   transition-property: opacity;
   transition-duration: 3s;
   -webkit-transition-property: opacity;
@@ -160,22 +162,33 @@ html, body {
 }
 
 .diary-lines {
-  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 49%,rgba(41,137,216,1) 49%,rgba(32,124,202,1) 49%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%);
-  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 49%,rgba(41,137,216,0.7) 49%,rgba(41,137,216,0.7) 55%,rgba(255,255,255,1) 55%,rgba(255,255,255,1) 100%);
-  background-size: 15px 15px;
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 49%,rgba(41,137,216,0.7) 49%,rgba(41,137,216,0.7) 55%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,1) 0px, rgba(255,255,255,1) 12px, rgba(255,68,68,1) 12px, rgba(255,68,68,1) 15px, rgba(0,0,0,0) 15px), linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 49%,rgba(41,137,216,0.7) 49%,rgba(41,137,216,0.7) 55%,rgba(255,255,255,1) 55%,rgba(255,255,255,1) 100%);
+  background-size: 100% 15px;
 }
 
 #diary-text {
-  display: inline-block;
-  padding: 5%;
-  width: 90%;
+  margin-left: 10px;
+  width: 96%;
   height: 100%;
   text-align: justify;
   font-family: 'Sacramento', cursive;
   font-size: 2em;
-  line-height: 120%;
-  overflow: hidden;
+  line-height: 30px;
   color: #000000;
+}
+
+#diary-text p {
+  margin-top: 0px;
+}
+
+#diary-text p:nth-child(1) {
+  margin-bottom: 15px;
+}
+
+#diary-text p:nth-child(2) {
+  margin-bottom: 0px;
+  text-align: center;
 }
 
 .records-wrapper {
