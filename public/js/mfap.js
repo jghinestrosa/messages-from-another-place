@@ -10,19 +10,18 @@
       $dimmed = $('.dimmed'),
       $shadow = $('#shadow'),
       $diane = $('#diane'),
-      $records = $('#records'),
       $diary = $('#diary'),
       $tapeRecorder = $('#tape-recorder'),
       $bPlay = $('.button.play'),
       $bStop = $('.button.stop'),
       $bRecord = $('.button.record'),
+      $bEject = $('.button.eject'),
       $tapeCircles = $('.tape-circle'),
       $redLight = $('.red-light');
 
   /* Variables for the audio recording process */
 
   var recorder,
-      //audio = $('audio')[0],
       audio = document.createElement('audio'),
       a = $('a')[0];
 
@@ -141,7 +140,6 @@
   }
 
   function startRecordingAnimation() {
-    $records.hide();
     illuminateRoom();
     setFlashingLights();
     flipText();
@@ -344,9 +342,6 @@
     }
 
     recorder.record();
-
-    //$letsRock.off('click');
-    //$letsRock.on('click', stopRecording);
   }
 
   function stopRecording() {
@@ -356,13 +351,7 @@
 
     recorder.stop();
     createWAV();
-    $records.show();
     recorder.clear();
-
-    //restoreTextOrientation();
-
-    //$letsRock.off('click');
-    //$letsRock.on('click', startRecordingAnimation);
   }
 
   function playAudio() {
