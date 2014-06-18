@@ -108,7 +108,7 @@
   width: 5%;
   height: 5%;
   border-radius: 50%;
-  background: #f00;
+  background: #000;
   border: 3px solid #222222;
 }
 
@@ -178,10 +178,6 @@
   background-size: 23px 23px;
   right: 25%;
   border-radius: 50%;
-
-  transition-property: transform;
-  transition-duration: 8s;
-  transition-timing-function: linear;
 }
 
 .tape-circle.top {

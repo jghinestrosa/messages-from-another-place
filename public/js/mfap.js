@@ -16,12 +16,14 @@
       $bPlay = $('.button.play'),
       $bStop = $('.button.stop'),
       $bRecord = $('.button.record'),
-      $tapeCircles = $('.tape-circle');
+      $tapeCircles = $('.tape-circle'),
+      $redLight = $('.red-light');
 
   /* Variables for the audio recording process */
 
   var recorder,
-      audio = $('audio')[0],
+      //audio = $('audio')[0],
+      audio = document.createElement('audio'),
       a = $('a')[0];
 
   // Set up getUserMedia, AudioContext and URL
@@ -155,13 +157,72 @@
   }
 
   function startTapeAnimation() {
-    $tapeCircles.addClass('spin');
+    if (!($tapeCircles.hasClass('spin'))) {
+      $tapeCircles.addClass('spin');
+    }
   } 
+
+  function stopTapeAnimation() {
+    $tapeCircles.removeClass('spin');
+  } 
+
+  function turnOnRecordingLight() {
+    updateCss($redLight, 'background', '#f00');
+  } 
+
+  function turnOffRecordingLight() {
+    updateCss($redLight, 'background', '#000');
+  } 
+
+  function isRecordingAudio() {
+    return (recorder && recorder.isRecording());
+  }
 
   /* Audio recording process */
 
+  $(audio).on('paused ended', function() {
+    stopTapeAnimation();
+  });
+
+  $(audio).on('play', function(e) {
+    startTapeAnimation();
+  });
+
   // The recording button of the tape recorder is clicked
-  $bRecord.on('click', askForRecordingPermission);
+  $bRecord.on('click', function() {
+
+    if (isRecordingAudio()) {
+      stopRecording();
+    }
+
+    askForRecordingPermission();
+  });
+
+
+  // Stop audio if playing or stop recording
+  $bStop.on('click', function() {
+    if (isRecordingAudio()) {
+      stopRecording();
+      turnOffRecordingLight();
+      stopTapeAnimation();
+    }
+    else {
+      stopAudio();
+    }
+
+    // Stop spin animation
+
+  });
+
+  $bPlay.on('click', function() {
+    if (isRecordingAudio()) {
+      stopRecording();
+      turnOffRecordingLight();
+    }
+
+    playAudio();
+
+  });
 
   function prepareForRecording() {
     //$dimmed.show(); //TODO Fix
@@ -187,11 +248,12 @@
         });
       }
       else {
-          updateCss($diary, 'opacity', '1.0');
-          $diary.show();
+        updateCss($diary, 'opacity', '1.0');
+        $diary.show();
       }
     }
     else {
+      turnOnRecordingLight();
       startTapeAnimation();
       startRecording();
     }
@@ -200,8 +262,9 @@
   // Start tape animation and start recording
   function startRecordingProcess(stream) {
     initializeRecorder(stream);
+    turnOnRecordingLight();
     startTapeAnimation();
-    //startRecording();
+    startRecording();
   }
 
   // Initialize Recorder object for the first time
@@ -217,25 +280,23 @@
     recorder = new Recorder(input, {workerPath:'js/recorderWorker.js'});
   }
 
-  function startRecording(e) {
+  function startRecording() {
     if (!recorder) {
       return;
     }
 
     recorder.record();
 
-    $diane.show();
     $letsRock.off('click');
     $letsRock.on('click', stopRecording);
   }
 
-  function stopRecording(e) {
+  function stopRecording() {
     if (!recorder) {
       return;
     }
 
     recorder.stop();
-    $diane.hide();
     createWAV();
     $records.show();
     recorder.clear();
@@ -244,6 +305,17 @@
 
     $letsRock.off('click');
     $letsRock.on('click', startRecordingAnimation);
+  }
+
+  function playAudio() {
+    if (audio.src !== ''){
+      audio.play();
+    }
+  }
+
+  function stopAudio() {
+    audio.pause();
+    audio.currentTime = 0;
   }
 
   // Create WAV file, load it in the audio player
