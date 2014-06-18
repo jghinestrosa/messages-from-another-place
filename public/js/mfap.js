@@ -276,6 +276,20 @@
     $letsRock.on('click', function() {
       restoreTextOrientation();
       hideTapeRecorder();
+
+      // Check if audio is being recorded or played when "Let's rock" is clicked
+      if (isPlayingAudio() || isRecordingAudio()) {
+        if (isPlayingAudio()) {
+          stopAudio();
+        }
+
+        if (isRecordingAudio()) {
+          stopRecording();
+          turnOffRecordingLight();
+        }
+        stopTapeAnimation();
+      }
+
       $letsRock.off('click');
       $letsRock.on('click', startRecordingAnimation);
     });
@@ -331,8 +345,8 @@
 
     recorder.record();
 
-    $letsRock.off('click');
-    $letsRock.on('click', stopRecording);
+    //$letsRock.off('click');
+    //$letsRock.on('click', stopRecording);
   }
 
   function stopRecording() {
@@ -345,14 +359,14 @@
     $records.show();
     recorder.clear();
 
-    restoreTextOrientation();
+    //restoreTextOrientation();
 
-    $letsRock.off('click');
-    $letsRock.on('click', startRecordingAnimation);
+    //$letsRock.off('click');
+    //$letsRock.on('click', startRecordingAnimation);
   }
 
   function playAudio() {
-    if (audio.src !== ''){
+    if (audio.src !== '') {
       audio.play();
     }
   }
@@ -360,6 +374,10 @@
   function stopAudio() {
     audio.pause();
     audio.currentTime = 0;
+  }
+
+  function isPlayingAudio() {
+    return !audio.paused;
   }
 
   // Create WAV file, load it in the audio player
