@@ -31,7 +31,7 @@
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
   window.URL = window.URL || window.webkitURL;
 
-  /* Animation events*/
+  /* Animation and transition events*/
 
   // Show title when the lights animation has ended
   $lights
@@ -57,9 +57,19 @@
     .on('animationend', prepareForRecording)
     .on('webkitAnimationEnd', prepareForRecording);
 
+  // Hide diary message if the div is clicked
   $diary.on('transitionend webkitTransitionEnd', function() {
     if ($diary.css('opacity') === '0') {
       $diary.hide();
+    }
+  });
+
+  $tapeRecorder.on('transitionend webkitTransitionEnd', function() {
+    if ($tapeRecorder.css('opacity') === '0') {
+      $tapeRecorder.hide();
+    }
+    else {
+      listenTapeRecorderEvents(true);
     }
   });
 
@@ -164,7 +174,17 @@
   }
 
   function showTapeRecorder() {
-    updateCss($tapeRecorder, 'opacity', '1.0');
+    updateCss($tapeRecorder, 'display', 'inline-block');
+
+    // Hack for Firefox and Webkit browsers
+    setTimeout(function() {
+      updateCss($tapeRecorder, 'opacity', '1.0');
+    }, 50);
+  }
+
+  function hideTapeRecorder() {
+    listenTapeRecorderEvents(false);
+    updateCss($tapeRecorder, 'opacity', '0.0');
   }
 
   function startTapeAnimation() {
@@ -191,6 +211,7 @@
 
   /* Audio recording process */
 
+  // Audio player events
   $(audio).on('paused ended', function() {
     stopTapeAnimation();
   });
@@ -199,39 +220,52 @@
     startTapeAnimation();
   });
 
-  // The recording button of the tape recorder is clicked
-  $bRecord.on('click', function() {
-
-    if (isRecordingAudio()) {
-      stopRecording();
+  // Buttons of tape recorder
+  function listenTapeRecorderEvents(enabled) {
+    // Stop listening click events
+    if (!enabled) {
+      $bRecord.off('click');
+      $bStop.off('click');
+      $bPlay.off('click');
+      return;
     }
 
-    askForRecordingPermission();
-  });
+    // Start listening click events
+    
+    // The recording button of the tape recorder is clicked
+    $bRecord.on('click', function() {
+
+      if (isRecordingAudio()) {
+        stopRecording();
+      }
+
+      askForRecordingPermission();
+    });
 
 
-  // Stop audio if playing or stop recording
-  $bStop.on('click', function() {
-    if (isRecordingAudio()) {
-      stopRecording();
-      turnOffRecordingLight();
-      stopTapeAnimation();
-    }
-    else {
-      stopAudio();
-    }
+    // Stop audio if playing or stop recording
+    $bStop.on('click', function() {
+      if (isRecordingAudio()) {
+        stopRecording();
+        turnOffRecordingLight();
+        stopTapeAnimation();
+      }
+      else {
+        stopAudio();
+      }
 
-  });
+    });
 
-  $bPlay.on('click', function() {
-    if (isRecordingAudio()) {
-      stopRecording();
-      turnOffRecordingLight();
-    }
+    $bPlay.on('click', function() {
+      if (isRecordingAudio()) {
+        stopRecording();
+        turnOffRecordingLight();
+      }
 
-    playAudio();
+      playAudio();
 
-  });
+    });
+  }
 
   function prepareForRecording() {
     //$dimmed.show(); //TODO Fix
@@ -241,6 +275,7 @@
     $letsRock.off('click');
     $letsRock.on('click', function() {
       restoreTextOrientation();
+      hideTapeRecorder();
       $(this).off('click');
       $(this).on('click', startRecordingAnimation);
     });

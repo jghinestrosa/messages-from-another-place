@@ -1,5 +1,5 @@
 #tape-recorder {
-  display: inline-block;
+  display: none;
   width: 150px;
   height: 250px;
   position: relative;
@@ -7,9 +7,9 @@
   -webkit-perspective: 1000px;
   
   transition-property: opacity;
-  transition-duration: 5s;
+  transition-duration: 4s;
   -webkit-transition-property: opacity;
-  -webkit-transition-duration: 5s;
+  -webkit-transition-duration: 4s;
   opacity: 0.0;
 }
 
