@@ -416,7 +416,7 @@ and (max-width : 640px) {
   font-size: 1.5em;
 }
 
-#notebook-text {
+#diary-text {
   font-size: 1.5em;
 }
 
@@ -431,6 +431,9 @@ and (max-width : 320px) {
   font-size: 1.7em;
 }
 
+#diary-text {
+  font-size: 1.2em;
+}
 
 }
 
