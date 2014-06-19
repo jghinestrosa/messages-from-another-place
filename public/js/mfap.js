@@ -167,8 +167,6 @@
   function restoreTextOrientation() {
     $title.removeClass('flipping-text');
     $letsRock.removeClass('flipping-text');
-    $title.css('transform', 'scaleX(1)');
-    $letsRock.css('transform', 'scaleX(1)');
   }
 
   function showDiaryMessage() {
@@ -346,7 +344,7 @@
     var input = audioContext.createMediaStreamSource(stream);
 
     // Hack for Firefox - Prevent the action of garbage collector
-    if (navigator.userAgent.indexOf('Firefox') !== -1) {
+    if (navigator.userAgent.toLowerCase().indexOf('firefox') !== -1) {
       window.audioInputHackForFirefox = input;
     }
 
