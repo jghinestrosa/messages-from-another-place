@@ -33,28 +33,18 @@
   /* Animation and transition events*/
 
   // Show title when the lights animation has ended
-  $lights
-    .on('animationend', showTitle)
-    .on('webkitAnimationEnd', showTitle);
+  $lights.on('animationend webkitAnimationEnd', showTitle);
 
   // Show Let's Rock div when the title transition has ended
-  $title
-    .on('transitionend', dimRoom)
-    .on('webkitTransitionEnd', dimRoom);
+  $title.on('transitionend webkitTransitionEnd', dimRoom);
     
-  $dimmed
-    .on('transitionend', showLetsRock)
-    .on('webkitTransitionEnd', showLetsRock);
+  $dimmed.on('transitionend  webkitTransitionEnd', showLetsRock);
 
   // Hide lights div when the Let's Rock transition has ended
-  $letsRock
-    .on('transitionend', handleLetsRockTransitions)
-    .on('webkitTransitionEnd', handleLetsRockTransitions);
+  $letsRock.on('transitionend webkitTransitionEnd', handleLetsRockTransitions);
   
   // Remove flashing lights when the flashing and flipping animations end
-  $letsRock
-    .on('animationend', prepareForRecording)
-    .on('webkitAnimationEnd', prepareForRecording);
+  $letsRock.on('animationend webkitAnimationEnd', prepareForRecording);
 
   // Hide diary message if the div is clicked
   $diary.on('transitionend webkitTransitionEnd', function() {
@@ -225,7 +215,7 @@
     stopTapeAnimation();
   });
 
-  $(audio).on('play', function(e) {
+  $(audio).on('play', function() {
     startTapeAnimation();
   });
 
