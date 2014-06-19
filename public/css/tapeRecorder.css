@@ -242,22 +242,55 @@
   -webkit-animation-timing-function: linear;
 }
 
+/* iPhone */
+
+@media screen 
+and (max-width : 320px) {
+#tape-recorder {
+  width: 100px;
+  height: 150px;
+}
+
+.side.right {
+  left: 39px;
+}
+
+.front {
+  transform: rotateY(-55deg) translateZ(11px);
+  -webkit-transform: rotateY(-55deg) translateZ(11px);
+}
+
+.right {
+  transform: rotateY(35deg) translateZ(50px);
+  -webkit-transform: rotateY(35deg) translateZ(50px);
+}
+
+.tape-circle {
+  width: 15px;
+  height: 15px;
+  background-size: 15px 15px;
+}
+
+}
+
+/* Animations */
+
 @keyframes spin-anim {
   from {
     transform: rotate(0deg);
-  }
+}
 
-  to {
-    transform: rotate(360deg);
-  }
+to {
+  transform: rotate(360deg);
+}
 }
 
 @-webkit-keyframes spin-anim {
   from {
     -webkit-transform: rotate(0deg);
-  }
+}
 
-  to {
-    -webkit-transform: rotate(360deg);
-  }
+to {
+  -webkit-transform: rotate(360deg);
+}
 }
