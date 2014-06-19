@@ -79,7 +79,7 @@
 
   // Hide diary when is clicked
   $diary.on('click', function() {
-    $diary.css('opacity', '0.0');
+    hideDiaryMessage();
   });
 
   function dimRoom() {
@@ -169,6 +169,19 @@
     $letsRock.removeClass('flipping-text');
     $title.css('transform', 'scaleX(1)');
     $letsRock.css('transform', 'scaleX(1)');
+  }
+
+  function showDiaryMessage() {
+    $diary.show();
+
+    // Hack for Firefox and Webkit browsers
+    setTimeout(function() {
+      $diary.css('opacity', '1.0');
+    }, 50);
+  }
+
+  function hideDiaryMessage() {
+    $diary.css('opacity', '0.0');
   }
 
   function showTapeRecorder() {
@@ -274,6 +287,11 @@
     $letsRock.on('click', function() {
       restoreTextOrientation();
       hideTapeRecorder();
+      
+      // Hide the diary message if it is visible
+      if ($diary.css('opacity') === '1') {
+        hideDiaryMessage();
+      }
 
       // Check if audio is being recorded or played when "Let's rock" is clicked
       if (isPlayingAudio() || isRecordingAudio()) {
@@ -304,8 +322,7 @@
         });
       }
       else {
-        $diary.show();
-        $diary.css('opacity', '1.0');
+        showDiaryMessage();
       }
     }
     else {
