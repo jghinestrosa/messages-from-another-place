@@ -118,7 +118,6 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
 }
 
 #title {
@@ -192,14 +191,12 @@ html, body {
   text-align: center;
 }
 
-.records-wrapper {
+.recording-wrapper {
   display: block;
   position: absolute;
   top: 30%;
   width: 100%;
   text-align: center;
-  font-size: 2em;
-  color: white;
 }
 
 #lets-rock-wrapper {
@@ -214,6 +211,7 @@ html, body {
   display: inline-block;
   font-size: 2em;
   font-family: 'Cedarville Cursive', cursive;
+  line-height: 100%;
   color: white;
 
   transition-property: opacity, color, text-shadow;
@@ -385,10 +383,6 @@ and (max-width : 640px) {
   width: 50px;
 }
 
-.records-wrapper {
-  font-size: 1.5em;
-}
-
 #diary {
   left: 5%;
   width: 80%;
@@ -413,10 +407,16 @@ and (max-width : 640px) {
 @media screen 
 and (max-width : 320px) {
   #title {
+    margin-top: 10px;
     font-size: 1.7em;
 }
+
+.recording-wrapper {
+  top: 35%;
+}
+
 #lets-rock {
-  font-size: 1.7em;
+  font-size: 1.6em;
 }
 
 #diary-text {
