@@ -17,7 +17,8 @@
       $bRecord = $('.button.record'),
       $bEject = $('.button.eject'),
       $tapeCircles = $('.tape-circle'),
-      $redLight = $('.red-light');
+      $redLight = $('.red-light'),
+      readyToStartRecording = false;
 
   /* Variables for the audio recording process */
 
@@ -38,7 +39,14 @@
   // Show Let's Rock div when the title transition has ended
   $title.on('transitionend webkitTransitionEnd', dimRoom);
     
-  $dimmed.on('transitionend  webkitTransitionEnd', showLetsRock);
+  $dimmed.on('transitionend  webkitTransitionEnd', function() {
+    if (readyToStartRecording) {
+      showTapeRecorder();
+    }
+    else {
+      showLetsRock();
+    }
+  });
 
   // Hide lights div when the Let's Rock transition has ended
   $letsRock.on('transitionend webkitTransitionEnd', handleLetsRockTransitions);
@@ -133,6 +141,7 @@
     illuminateRoom();
     setFlashingLights();
     flipText();
+    readyToStartRecording = true;
   }
 
   function setFlashingLights() {
@@ -267,7 +276,6 @@
   }
 
   function prepareForRecording() {
-    //$dimmed.show(); //TODO Fix
     removeFlashingLights();
     dimRoom();
 
@@ -275,6 +283,7 @@
     $letsRock.on('click', function() {
       restoreTextOrientation();
       hideTapeRecorder();
+      readyToStartRecording = false;
       
       // Hide the diary message if it is visible
       if ($diary.css('opacity') === '1') {
@@ -298,8 +307,7 @@
       $letsRock.on('click', startRecordingAnimation);
     });
 
-    //askForRecordingPermission();
-    showTapeRecorder();
+    //showTapeRecorder();
   }
 
   function askForRecordingPermission() {
