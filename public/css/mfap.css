@@ -356,8 +356,14 @@ and (max-width : 1024px){
 @media screen 
 and (max-width : 640px) {
   #title {
+    margin-top: 8px;
     font-size: 2em;
 }
+
+.recording-wrapper {
+  top: 25%;
+}
+
 #floor .curtains {
   height: 24px;
 }

@@ -242,10 +242,8 @@
   -webkit-animation-timing-function: linear;
 }
 
-/* iPhone */
-
 @media screen 
-and (max-width : 320px) {
+and (max-height : 480px) {
 #tape-recorder {
   width: 100px;
   height: 150px;
@@ -273,6 +271,33 @@ and (max-width : 320px) {
 
 }
 
+@media screen 
+and (max-height : 320px) {
+#tape-recorder {
+  width: 87px;
+  height: 130px;
+}
+
+.side.right {
+  left: 34px;
+}
+
+.front {
+  transform: rotateY(-55deg) translateZ(10px);
+  -webkit-transform: rotateY(-55deg) translateZ(10px);
+}
+
+.right {
+  transform: rotateY(35deg) translateZ(45px);
+  -webkit-transform: rotateY(35deg) translateZ(45px);
+}
+
+.tape-circle {
+  width: 12px;
+  height: 12px;
+  background-size: 12px 12px;
+}
+}
 /* Animations */
 
 @keyframes spin-anim {
