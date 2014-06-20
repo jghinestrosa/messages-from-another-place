@@ -51,6 +51,7 @@ html, body {
   background: #000000;
   background-blend-mode: overlay;
 
+  -webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,1);
   box-shadow: 0px 0px 5px 3px rgba(0,0,0,1);
 
   /* Smooth the edges of the shadow */
@@ -141,6 +142,7 @@ html, body {
   width: 50%;
   min-height: 100px;
   overflow: hidden;
+  -webkit-box-shadow: 1px 1px 5px #000000;
   box-shadow: 1px 1px 5px #000000;
 
   transition-property: opacity;
