@@ -25,6 +25,7 @@
   display: block;
   position: absolute;
   border: 2px solid gray;
+  outline: 1px solid transparent;
 }
 
 .side.front {
