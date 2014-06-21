@@ -9,7 +9,6 @@
       $curtains = $('.curtains'),
       $dimmed = $('.dimmed'),
       $shadow = $('#shadow'),
-      $diane = $('#diane'),
       $diary = $('#diary'),
       $tapeRecorder = $('#tape-recorder'),
       $bPlay = $('.button.play'),
