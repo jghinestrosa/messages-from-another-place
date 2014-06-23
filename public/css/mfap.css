@@ -229,12 +229,27 @@ html, body {
   text-shadow: 2px 2px #000;
 }
 
+#floor-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  -webkit-perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
 #floor {
   position: absolute;
-  bottom: 0;
+  top: 30%;
   width: 100%;
-  height: 50%;
-  z-index: 0;
+  height: 100%;
+  -webkit-transform: rotateX(75deg);
+  transform: rotateX(75deg);
 }
 
 #floor .curtains {
