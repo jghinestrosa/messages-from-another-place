@@ -457,10 +457,11 @@ and (max-width : 320px) {
 }
 
 .recording-wrapper {
-  top: 35%;
+  top: 31%;
 }
 
 #lets-rock {
+  bottom: 4%;
   font-size: 1.6em;
 }
 
