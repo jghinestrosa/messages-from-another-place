@@ -155,6 +155,7 @@ html, body {
   overflow: hidden;
   -webkit-box-shadow: 1px 1px 5px #000000;
   box-shadow: 1px 1px 5px #000000;
+  z-index: 5;
 
   transition-property: opacity;
   transition-duration: 3s;
@@ -164,7 +165,7 @@ html, body {
 }
 
 .diary-lines {
-  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 49%,rgba(41,137,216,0.7) 49%,rgba(41,137,216,0.7) 55%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 100%);
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0px, rgba(255,255,255,1) 12px, rgba(255,68,68,1) 12px, rgba(255,68,68,1) 15px, rgba(0,0,0,0) 15px), -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 49%,rgba(41,137,216,0.7) 49%,rgba(41,137,216,0.7) 55%,rgba(255,255,255,1) 55%,rgba(255,255,255,1) 100%);
   background: linear-gradient(to right, rgba(255,255,255,1) 0px, rgba(255,255,255,1) 12px, rgba(255,68,68,1) 12px, rgba(255,68,68,1) 15px, rgba(0,0,0,0) 15px), linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 49%,rgba(41,137,216,0.7) 49%,rgba(41,137,216,0.7) 55%,rgba(255,255,255,1) 55%,rgba(255,255,255,1) 100%);
   background-size: 100% 15px;
 }
