@@ -257,7 +257,6 @@
     
     // The recording button of the tape recorder is clicked
     $bRecord.on('click', function() {
-
       if (isRecordingAudio()) {
         stopRecording();
       }
@@ -271,11 +270,12 @@
       if (isRecordingAudio()) {
         stopRecording();
         turnOffRecordingLight();
-        stopTapeAnimation();
       }
       else {
         stopAudio();
       }
+
+      stopTapeAnimation();
 
     });
 
