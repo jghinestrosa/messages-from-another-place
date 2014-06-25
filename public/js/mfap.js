@@ -17,6 +17,8 @@
       $bEject = $('.button.eject'),
       $tapeCircles = $('.tape-circle'),
       $redLight = $('.red-light'),
+      $twitter = $('#twitter'),
+      $twitterIcon = $('#twitter-icon'),
       readyToStartRecording = false;
 
   /* Variables for the audio recording process */
@@ -78,6 +80,20 @@
   $diary.on('click', function() {
     hideDiaryMessage();
   });
+
+  $twitterIcon.on('click', (function() {
+    var margin = $twitter.css('margin-bottom');
+
+    return function() {
+      if ($twitter.css('margin-bottom') !== '0px') {
+        $twitter.css('margin-bottom', '0');
+      }
+      else {
+        $twitter.css('margin-bottom', margin);
+      }
+    };
+
+  }()));
 
   function dimRoom() {
     dimCurtains();

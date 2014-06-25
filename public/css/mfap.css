@@ -8,12 +8,65 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow: hidden;
+}
+
+#twitter {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  right: 3%;
+  margin-bottom: -9em;
+
+  z-index: 6;
+
+  transition-property: margin-bottom;
+  transition-duration: 1s;
+  -webkit-transition-property: margin-bottom;
+  -webkit-transition-duration: 1s;
+}
+
+#twitter-icon {
+  position: relative;
+  left: 80%;
+  width: 30px;
+  height: 30px;
+  background: #000000;
+}
+
+#twitter-icon:hover {
+  cursor: pointer;
+}
+
+#twitter-text {
+  font-size: 1em;
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+  color: #000000;
+  height: 9em;
+  padding: 0 8px 0 8px;
+  /*background: #ffffff;*/
+  background: -moz-radial-gradient(center, ellipse cover, rgba(238,238,238,1) 64%, rgba(214,214,214,1) 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(238,238,238,1) 64%,rgba(214,214,214,1) 100%);
+  background: radial-gradient(ellipse at center, rgba(238,238,238,1) 64%,rgba(214,214,214,1) 100%);
+  overflow: hidden;
+  border: 1px solid #000000;
+}
+
+#twitter-text p {
+  margin: 0;
+}
+
+#twitter-text span {
+  font-weight: bold;
 }
 
 #wrapper {
   background: #000;
   min-height: 100%;
   position: relative;
+
+  /* Browsers that parse "viewport" tag ignore overflow property in html and body */
+  overflow: hidden;
 }
 
 .dimmed {
@@ -438,7 +491,7 @@ and (max-width : 640px) {
 @media screen 
 and (max-width : 360px) {
 
-/* Make the spotlight bigger in some devices */
+  /* Make the spotlight bigger in some devices */
   .dimmed.spotlight {
     background: -moz-radial-gradient(center, circle cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,1) 34%, rgba(0,0,0,1) 100%);
     background: -webkit-radial-gradient(center, circle cover, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,1) 34%,rgba(0,0,0,1) 100%);
@@ -450,6 +503,16 @@ and (max-width : 360px) {
 #shadow.movement {
   animation-duration: 20s;
   -webkit-animation-duration: 20s;
+}
+
+#twitter {
+  /*margin-bottom: -8.5em;*/
+  margin-bottom: -5.2em;
+}
+
+#twitter-text {
+  font-size: 0.6em;
+  height: 8.5em;
 }
 
 }
