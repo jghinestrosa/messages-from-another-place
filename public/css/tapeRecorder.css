@@ -69,11 +69,11 @@
   top: 10%;
 }
 
-.button.stop {
+.button.record {
   top: 30%;
 }
 
-.button.record {
+.button.stop {
   top: 50%;
 }
 
@@ -111,8 +111,10 @@
   left: 25%;
   width: 50%;
   height: 50%;
-  background: #ffffff;
+  background: #ff0000;
   border-radius: 50%;
+  /*border: 1px solid #ffffff;*/
+  border: 1px solid gray;
 }
 
 .eject-icon1 {
