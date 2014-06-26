@@ -11,10 +11,10 @@
       $shadow = $('#shadow'),
       $diary = $('#diary'),
       $tapeRecorder = $('#tape-recorder'),
-      $bPlay = $('.button.play'),
-      $bStop = $('.button.stop'),
-      $bRecord = $('.button.record'),
-      $bEject = $('.button.eject'),
+      $bPlay = $('#play'),
+      $bStop = $('#stop'),
+      $bRecord = $('#record'),
+      $bEject = $('#eject'),
       $tapeCircles = $('.tape-circle'),
       $redLight = $('.red-light'),
       $twitter = $('#twitter'),
@@ -232,14 +232,27 @@
     return (recorder && recorder.isRecording());
   }
 
+  function toggleButtonsPressed(buttons) {
+    for (var i = 0; i < buttons.length; i++) {
+      if (buttons[i].hasClass('pressed')) {
+        buttons[i].removeClass('pressed');
+      }
+      else {
+        buttons[i].addClass('pressed');
+      }
+    }
+  }
+
   /* Audio recording process */
 
   // Audio player events
   $(audio).on('paused ended', function() {
+    toggleButtonsPressed([$bRecord, $bPlay]);
     stopTapeAnimation();
   });
 
   $(audio).on('play', function() {
+    toggleButtonsPressed([$bRecord, $bPlay]);
     startTapeAnimation();
   });
 
@@ -257,35 +270,46 @@
     
     // The recording button of the tape recorder is clicked
     $bRecord.on('click', function() {
-      if (isRecordingAudio()) {
-        stopRecording();
+      //if (isRecordingAudio()) {
+        //stopRecording();
+      //}
+
+      //askForRecordingPermission();
+
+      if (!isRecordingAudio() && !isPlayingAudio()) {
+        askForRecordingPermission();
       }
 
-      askForRecordingPermission();
     });
 
 
     // Stop audio if playing or stop recording
     $bStop.on('click', function() {
-      if (isRecordingAudio()) {
-        stopRecording();
-        turnOffRecordingLight();
+      if (isRecordingAudio() || isPlayingAudio()) {
+        if (isRecordingAudio()) {
+          stopRecording();
+          turnOffRecordingLight();
+        }
+        else {
+          stopAudio();
+        }
+        stopTapeAnimation();
+        toggleButtonsPressed([$bRecord, $bPlay]);
       }
-      else {
-        stopAudio();
-      }
-
-      stopTapeAnimation();
-
     });
 
     $bPlay.on('click', function() {
-      if (isRecordingAudio()) {
-        stopRecording();
-        turnOffRecordingLight();
-      }
+      //if (isRecordingAudio()) {
+        //stopRecording();
+        //turnOffRecordingLight();
+        //toggleButtonPressed([$bRecord, $bPlay]);
+        //}
 
-      playAudio();
+        //playAudio();
+
+        if (!isRecordingAudio() && !isPlayingAudio()) {
+          playAudio();
+        }
 
     });
   }
@@ -299,7 +323,7 @@
       restoreTextOrientation();
       hideTapeRecorder();
       readyToStartRecording = false;
-      
+
       // Hide the diary message if it is visible
       if ($diary.css('opacity') === '1') {
         hideDiaryMessage();
@@ -328,26 +352,31 @@
   function askForRecordingPermission() {
     if (!recorder) {
       if (navigator.getUserMedia) {
-        navigator.getUserMedia({audio:true}, startRecordingProcess, function(error) {
-          console.log('Error: ' + error);
-        });
+        navigator.getUserMedia({audio:true},
+          function(stream) {
+            initializeRecorder(stream);
+            if (recorder) {
+              startRecordingProcess();
+            }
+          },
+          function(error) {
+            console.log('Error: ' + error);
+          });
       }
       else {
         showDiaryMessage();
       }
     }
     else {
-      turnOnRecordingLight();
-      startTapeAnimation();
-      startRecording();
+      startRecordingProcess();
     }
   }
 
   // Start tape animation and start recording
-  function startRecordingProcess(stream) {
-    initializeRecorder(stream);
+  function startRecordingProcess() {
     turnOnRecordingLight();
     startTapeAnimation();
+    toggleButtonsPressed([$bRecord, $bPlay]);
     startRecording();
   }
 
