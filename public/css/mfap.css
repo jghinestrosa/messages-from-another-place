@@ -16,7 +16,7 @@ html, body {
   position: absolute;
   bottom: 0;
   right: 1%;
-  margin-bottom: -9.1em;
+  margin-bottom: -14.2em;
 
   z-index: 6;
 
@@ -58,8 +58,8 @@ html, body {
   font-size: 1em;
   font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
   color: #000000;
-  height: 9em;
-  padding: 0 8px 0 8px;
+  height: 13em;
+  padding: 8px;
   background: -moz-radial-gradient(center, ellipse cover, rgba(238,238,238,1) 64%, rgba(214,214,214,1) 100%);
   background: -webkit-radial-gradient(center, ellipse cover, rgba(238,238,238,1) 64%,rgba(214,214,214,1) 100%);
   background: radial-gradient(ellipse at center, rgba(238,238,238,1) 64%,rgba(214,214,214,1) 100%);
@@ -73,6 +73,37 @@ html, body {
 
 #info-text span {
   font-weight: bold;
+}
+
+#links {
+  position: relative;
+}
+
+.github {
+  position: relative;
+  left: 60%;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: url('../img/github64.png');
+
+  transition-property: box-shadow;
+  transition-duration: 0.5s;
+  -webkit-transition-property: -webkit-box-shadow;
+  -webkit-transition-duration: 0.5s;
+}
+
+.github:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.3);
+}
+
+#twitter {
+  display: inline-block;
+  position: relative;
+  bottom: 40px;
+  left: 25%;
 }
 
 #wrapper {
