@@ -17,8 +17,8 @@
       $bEject = $('#eject'),
       $tapeCircles = $('.tape-circle'),
       $redLight = $('.red-light'),
-      $twitter = $('#twitter'),
-      $twitterIcon = $('#twitter-icon'),
+      $info = $('#info'),
+      $infoIcon = $('#info-icon'),
       readyToStartRecording = false;
 
   /* Variables for the audio recording process */
@@ -81,15 +81,18 @@
     hideDiaryMessage();
   });
 
-  $twitterIcon.on('click', (function() {
-    var margin = $twitter.css('margin-bottom');
+  $infoIcon.on('click', (function() {
+    var margin = $info.css('margin-bottom'),
+        arrowOpacity = $infoIcon.css('opacity');
 
     return function() {
-      if ($twitter.css('margin-bottom') !== '0px') {
-        $twitter.css('margin-bottom', '0');
+      if ($info.css('margin-bottom') !== '0px') {
+        $infoIcon.css('opacity', '1');
+        $info.css('margin-bottom', '0');
       }
       else {
-        $twitter.css('margin-bottom', margin);
+        $infoIcon.css('opacity', arrowOpacity);
+        $info.css('margin-bottom', margin);
       }
     };
 
