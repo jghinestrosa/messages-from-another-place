@@ -77,6 +77,8 @@ html, body {
 
 #links {
   position: relative;
+  height: 64px;
+  padding: 5px;
 }
 
 .github {
@@ -102,7 +104,8 @@ html, body {
 #twitter {
   display: inline-block;
   position: relative;
-  bottom: 40px;
+  /*bottom: 40px;*/
+  bottom: 75%;
   left: 25%;
 }
 
@@ -532,6 +535,43 @@ and (max-width : 640px) {
   margin-bottom: 10px;
 }
 
+#info {
+  margin-bottom: -8em;
+}
+
+#info-icon {
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 14px solid black;
+}
+
+#info-icon:before {
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 14px solid #dfdfdf;
+  margin-left: -14px;
+  margin-top: 2px;
+}
+
+#info-text {
+  font-size: 0.6em;
+  height: 11.5em;
+}
+
+.github {
+  width: 32px;
+  height: 32px;
+  background: url('../img/github32.png');
+}
+
+#links {
+  height: 32px;
+}
+
+#twitter {
+  bottom: 32px;
+}
+
 }
 
 @media screen 
@@ -550,17 +590,6 @@ and (max-width : 360px) {
   animation-duration: 20s;
   -webkit-animation-duration: 20s;
 }
-
-#twitter {
-  /*margin-bottom: -8.5em;*/
-  margin-bottom: -5.2em;
-}
-
-#twitter-text {
-  font-size: 0.6em;
-  height: 8.5em;
-}
-
 }
 
 @media screen 
