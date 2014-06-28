@@ -16,7 +16,7 @@ html, body {
   position: absolute;
   bottom: 0;
   right: 1%;
-  margin-bottom: -14.2em;
+  margin-bottom: -15.2em;
 
   z-index: 6;
 
@@ -58,7 +58,7 @@ html, body {
   font-size: 1em;
   font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
   color: #000000;
-  height: 13em;
+  height: 14em;
   padding: 8px;
   background: -moz-radial-gradient(center, ellipse cover, rgba(238,238,238,1) 64%, rgba(214,214,214,1) 100%);
   background: -webkit-radial-gradient(center, ellipse cover, rgba(238,238,238,1) 64%,rgba(214,214,214,1) 100%);
@@ -104,8 +104,7 @@ html, body {
 #twitter {
   display: inline-block;
   position: relative;
-  /*bottom: 40px;*/
-  bottom: 75%;
+  bottom: 32px;
   left: 25%;
 }
 
@@ -536,7 +535,7 @@ and (max-width : 640px) {
 }
 
 #info {
-  margin-bottom: -8em;
+  margin-bottom: -8.9em;
 }
 
 #info-icon {
@@ -555,7 +554,7 @@ and (max-width : 640px) {
 
 #info-text {
   font-size: 0.6em;
-  height: 11.5em;
+  height: 13em;
 }
 
 .github {
