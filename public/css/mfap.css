@@ -147,7 +147,7 @@ html, body {
 #shadow {
   display: none;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 75%;
   width: 100px;
   height: 150px;
