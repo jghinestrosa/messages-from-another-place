@@ -1,6 +1,18 @@
 {
   "name": "messages-from-another-place",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "A webapp that lets you record audio as if you were in the Red Room from Twin Peaks",
+  "homepage": "https://github.com/jorgehinestrosa/messages-from-another-place",
+  "bugs": {
+    "url": "https://github.com/jorgehinestrosa/messages-from-another-place/issues"
+  },
+  "license": "MIT",
+  "author": "Jorge Garcia Hinestrosa",
+  "main": "views/index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jorgehinestrosa/messages-from-another-place"
+  },
   "scripts": {
     "start": "node server.js"
   },
