@@ -32,6 +32,9 @@
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
   window.URL = window.URL || window.webkitURL;
 
+  // A nice easter egg...
+  console.log('One day my log will have something to say about this');
+
   /* Animation and transition events*/
 
   // Show title when the lights animation has ended
