@@ -16,6 +16,14 @@ So I started the project and for my surprise, the more I read and learned, the m
 
 In a nutshell, this is a project with learning purposes, but also the way I have to express the great admiration I feel for Twin Peaks.
 
+## How to use it
+
+If you want to give it a try, you can do it clicking [here](https://jghinestrosa.github.io/messages-from-another-place).
+
+When the web is loaded, just click in "Let's Rock" to have access to the tape recorder. The orientation of the text indicates you the way you will have to record your messages. Use the record button of the tape recorder to record a message talking backwards, use the stop button to stop recording, use the play button to listen your message in regular way, and use the eject button to download the message as a wav file. 
+
+If you record your message talking backwards, the web will reverse the audio and you will listen to yourself talking as the Man From Another Place in the Red Room.
+
 ## Install
 
 You only have to download the source and run `npm install` to download all the dependencies.
