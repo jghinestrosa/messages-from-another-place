@@ -212,6 +212,7 @@
   }
 
   function hideTapeRecorder() {
+    unpressButtons();
     listenTapeRecorderEvents(false);
     $tapeRecorder.css('opacity', '0.0');
   }
@@ -236,6 +237,16 @@
 
   function isRecordingAudio() {
     return (recorder && recorder.isRecording());
+  }
+
+  function unpressButtons() {
+    if ($bRecord.hasClass('pressed')) {
+      $bRecord.removeClass('pressed');
+    }
+
+    if ($bPlay.hasClass('pressed')) {
+      $bPlay.removeClass('pressed');
+    }
   }
 
   function toggleButtonsPressed(buttons) {
@@ -276,18 +287,11 @@
     
     // The recording button of the tape recorder is clicked
     $bRecord.on('click', function() {
-      //if (isRecordingAudio()) {
-        //stopRecording();
-      //}
-
-      //askForRecordingPermission();
-
       if (!isRecordingAudio() && !isPlayingAudio()) {
         askForRecordingPermission();
       }
 
     });
-
 
     // Stop audio if playing or stop recording
     $bStop.on('click', function() {
@@ -305,14 +309,6 @@
     });
 
     $bPlay.on('click', function() {
-      //if (isRecordingAudio()) {
-        //stopRecording();
-        //turnOffRecordingLight();
-        //toggleButtonPressed([$bRecord, $bPlay]);
-        //}
-
-        //playAudio();
-
         if (!isRecordingAudio() && !isPlayingAudio()) {
           playAudio();
         }
