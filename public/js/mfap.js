@@ -2,6 +2,7 @@
 
   /* Variables */
 
+  // DOM 
   var $window = $(window),
       $title = $('#title'),
       $lights = $('#lights'), 
@@ -21,11 +22,14 @@
       $info = $('#info'),
       $infoIcon = $('#info-icon'),
       $infoText = $('#info-text'),
-      $github = $('.github'),
-      readyToStartRecording = false;
+      $github = $('.github');
 
-  /* Variables for the audio recording process */
+  // Util 
+  var readyToStartRecording = false,
+      marginInfo = $info.css('margin-bottom'),
+      arrowOpacity = $infoIcon.css('opacity');
 
+  // Audio recording process
   var recorder,
       audio = document.createElement('audio'),
       a = $('a')[0];
@@ -87,25 +91,32 @@
     hideDiaryMessage();
   });
 
-  // Toggle the info message visibility
-  var toggleInfoMessage = (function() {
-    var margin = $info.css('margin-bottom'),
-    arrowOpacity = $infoIcon.css('opacity');
+  function showInfoMessage() {
+    $infoIcon.css('opacity', '1');
+    $info.css('margin-bottom', '0');
+  }
 
-    return function() {
-      if ($info.css('margin-bottom') === margin) {
-        $infoIcon.css('opacity', '1');
-        $info.css('margin-bottom', '0');
-      }
-      else {
-        $infoIcon.css('opacity', arrowOpacity);
-        $info.css('margin-bottom', margin);
-      }
-    };
-  }());
+  function hideInfoMessage() {
+    $infoIcon.css('opacity', arrowOpacity);
+    $info.css('margin-bottom', marginInfo);
+  }
+
+  // Toggle the info message visibility
+  function toggleInfoMessage() {
+    if ($info.css('margin-bottom') === marginInfo) {
+      showInfoMessage();
+    }
+    else {
+      hideInfoMessage();
+    }
+  }
 
   $infoIcon.on('click', toggleInfoMessage);
-  $window.on('click', toggleInfoMessage);
+  $window.on('click', function(e) {
+    if ($info.css('margin-bottom') === '0px') {
+      hideInfoMessage();
+    }
+  });
   $github.on('click', function(e) {
     e.stopPropagation();
   });
