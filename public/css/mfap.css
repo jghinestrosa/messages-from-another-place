@@ -384,7 +384,6 @@ html, body {
   background: -webkit-linear-gradient(315deg, #4c2c1f 25%, transparent 25%), -webkit-linear-gradient(225deg, #4c2c1f 25%, transparent 25%), -webkit-linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 25px 0, -webkit-linear-gradient(135deg, #4c2c1f 25%, transparent 25%) 25px 0, #c1824f;
   background: linear-gradient(135deg, #4c2c1f 25%, transparent 25%), linear-gradient(225deg, #4c2c1f 25%, transparent 25%), linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 25px 0, linear-gradient(315deg, #4c2c1f 25%, transparent 25%) 25px 0, #c1824f;
   background-size: 50px 50px;
-  /*background-color: #c1824f;*/
 }
 
 #blue-lights {
@@ -460,6 +459,64 @@ html, body {
   -webkit-animation-fill-mode: forwards;
 }
 
+@media screen
+and (min-width : 1920px) {
+  #title {
+    font-size: 4.6em;
+}
+  .curtains {
+    background-size: 110px 110px;
+}
+
+#lets-rock {
+  font-size: 2.9em;
+}
+
+#zigzag {
+  background: -webkit-linear-gradient(315deg, #4c2c1f 25%, transparent 25%), -webkit-linear-gradient(225deg, #4c2c1f 25%, transparent 25%), -webkit-linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 32px 0, -webkit-linear-gradient(135deg, #4c2c1f 25%, transparent 25%) 32px 0, #c1824f;
+  background: linear-gradient(135deg, #4c2c1f 25%, transparent 25%), linear-gradient(225deg, #4c2c1f 25%, transparent 25%), linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 32px 0, linear-gradient(315deg, #4c2c1f 25%, transparent 25%) 32px 0, #c1824f;
+  background-size: 64px 64px;
+}
+
+#shadow {
+  height: 220px;
+  width: 147px;
+}
+
+#info {
+  margin-bottom: -23.7em;
+}
+
+#info-icon {
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 40px solid black;
+}
+
+#info-icon:before {
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 40px solid #dfdfdf;
+  margin-left: -39px;
+  margin-top: 2px;
+}
+
+#info-text {
+  font-size: 1.5em;
+  height: 15em;
+}
+
+#diary-text {
+  font-size: 2.8em;
+  line-height: 50px;
+}
+
+#diary-text p:nth-child(1) {
+  margin-bottom: 23px;
+}
+
+}
+
 @media screen 
 and (max-width : 1024px){
   #lets-rock {
@@ -499,6 +556,7 @@ and (max-width : 640px) {
 }
 
 #zigzag {
+  background: -webkit-linear-gradient(315deg, #4c2c1f 25%, transparent 25%), -webkit-linear-gradient(225deg, #4c2c1f 25%, transparent 25%), -webkit-linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 12px 0, -webkit-linear-gradient(135deg, #4c2c1f 25%, transparent 25%) 12px 0, #c1824f;
   background: linear-gradient(135deg, #4c2c1f 25%, transparent 25%), linear-gradient(225deg, #4c2c1f 25%, transparent 25%), linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 12px 0, linear-gradient(315deg, #4c2c1f 25%, transparent 25%) 12px 0, #c1824f;
   background-size: 24px 24px;
 }

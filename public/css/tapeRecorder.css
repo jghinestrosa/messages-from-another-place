@@ -257,6 +257,35 @@
 }
 
 @media screen 
+and (min-height : 900px) {
+#tape-recorder {
+  width: 210px;
+  height: 350px;
+}
+
+.side.right {
+  left: 82px;
+}
+
+.front {
+  -webkit-transform: rotateY(-55deg) translateZ(23px);
+  transform: rotateY(-55deg) translateZ(23px);
+}
+
+.right {
+  -webkit-transform: rotateY(35deg) translateZ(107px);
+  transform: rotateY(35deg) translateZ(108px);
+}
+
+.tape-circle {
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+}
+
+}
+
+@media screen 
 and (max-height : 480px) {
 #tape-recorder {
   width: 100px;
