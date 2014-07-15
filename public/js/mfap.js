@@ -298,8 +298,9 @@
     // Stop listening click events
     if (!enabled) {
       $bRecord.off('click');
-      $bStop.off('click');
       $bPlay.off('click');
+      $bStop.off('mousedown mouseup');
+      $bEject.off('mousedown mouseup');
       return;
     }
 
@@ -314,7 +315,7 @@
     });
 
     // Stop audio if playing or stop recording
-    $bStop.on('click', function() {
+    $bStop.on('mousedown', function() {
       if (isRecordingAudio() || isPlayingAudio()) {
         if (isRecordingAudio()) {
           stopRecording();
@@ -327,6 +328,13 @@
         }
         stopTapeAnimation();
       }
+
+      toggleButtonsPressed([$bStop]);
+    });
+
+    // Unpress stop button when mouseup
+    $bStop.on('mouseup', function() {
+      toggleButtonsPressed([$bStop]);
     });
 
     $bPlay.on('click', function() {
@@ -334,6 +342,10 @@
         playAudio();
       }
 
+    });
+
+    $bEject.on('mousedown mouseup', function() {
+      toggleButtonsPressed([$bEject]);
     });
   }
 
