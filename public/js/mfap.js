@@ -319,19 +319,20 @@
         if (isRecordingAudio()) {
           stopRecording();
           turnOffRecordingLight();
+          toggleButtonsPressed([$bRecord, $bPlay]);
         }
         else {
           stopAudio();
+          toggleButtonsPressed([$bPlay]);
         }
         stopTapeAnimation();
-        toggleButtonsPressed([$bRecord, $bPlay]);
       }
     });
 
     $bPlay.on('click', function() {
-        if (!isRecordingAudio() && !isPlayingAudio()) {
-          playAudio();
-        }
+      if (!isRecordingAudio() && !isPlayingAudio()) {
+        playAudio();
+      }
 
     });
   }

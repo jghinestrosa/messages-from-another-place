@@ -12,6 +12,7 @@
   -webkit-transition-property: opacity;
   -webkit-transition-duration: 4s;
   opacity: 0.0;
+  /*opacity: 1.0;*/
 }
 
 .rectangle {
@@ -25,14 +26,14 @@
 .side {
   display: block;
   position: absolute;
-  border: 2px solid gray;
+  border: 2px solid black;
   outline: 1px solid transparent;
 }
 
 .side.front {
   height: 100%;
   width: 100%;
-  background: black;
+  background: #060606;
   border-radius: 5% 0 0 5%;
 }
 
@@ -40,7 +41,7 @@
   width: 22%;
   height: 100%;
   left: 59px;
-  background: black;
+  background: #151515;
   border-radius: 0 5% 5% 0;
 }
 
@@ -60,19 +61,22 @@
 }
 
 .button {
-  border: 1px solid gray;
+  border: 1px solid black;
   width: 70%; 
   height: 0;
   padding-bottom: 70%;
   position: relative;
-  background: black;
-  left: 15%;
+  background: #151515;
+  left: 30%;
   cursor: pointer;
-  box-shadow: -2px 2px 1px #222222;
+  /*box-shadow: -5px 2px 0 #222222;*/
+  box-shadow: -5px 2px 0 #000000;
 }
 
 .pressed {
-  opacity: 0.6;
+  /*opacity: 0.6;*/
+  left: 15%;
+  box-shadow: none;
 }
 
 .triangle {
@@ -146,7 +150,7 @@
 
   height: 46%; 
   width: 60%;
-  border: 1px solid white;
+  border: 1px solid gray;
 }
 
 .tape-lateral {
