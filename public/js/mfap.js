@@ -264,12 +264,12 @@
 
   // Audio player events
   $(audio).on('paused ended', function() {
-    toggleButtonsPressed([$bRecord, $bPlay]);
+    toggleButtonsPressed([$bPlay]);
     stopTapeAnimation();
   });
 
   $(audio).on('play', function() {
-    toggleButtonsPressed([$bRecord, $bPlay]);
+    toggleButtonsPressed([$bPlay]);
     startTapeAnimation();
   });
 
