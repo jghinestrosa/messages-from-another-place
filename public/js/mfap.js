@@ -2,7 +2,8 @@
 
   /* Variables */
 
-  var $title = $('#title'),
+  var $window = $(window),
+      $title = $('#title'),
       $lights = $('#lights'), 
       $blueLights = $('#blue-lights'),
       $letsRock = $('#lets-rock'),
@@ -19,6 +20,8 @@
       $redLight = $('.red-light'),
       $info = $('#info'),
       $infoIcon = $('#info-icon'),
+      $infoText = $('#info-text'),
+      $github = $('.github'),
       readyToStartRecording = false;
 
   /* Variables for the audio recording process */
@@ -84,12 +87,13 @@
     hideDiaryMessage();
   });
 
-  $infoIcon.on('click', (function() {
+  // Toggle the info message visibility
+  var toggleInfoMessage = (function() {
     var margin = $info.css('margin-bottom'),
-        arrowOpacity = $infoIcon.css('opacity');
+    arrowOpacity = $infoIcon.css('opacity');
 
     return function() {
-      if ($info.css('margin-bottom') !== '0px') {
+      if ($info.css('margin-bottom') === margin) {
         $infoIcon.css('opacity', '1');
         $info.css('margin-bottom', '0');
       }
@@ -98,8 +102,13 @@
         $info.css('margin-bottom', margin);
       }
     };
+  }());
 
-  }()));
+  $infoIcon.on('click', toggleInfoMessage);
+  $window.on('click', toggleInfoMessage);
+  $github.on('click', function(e) {
+    e.stopPropagation();
+  });
 
   function dimRoom() {
     dimCurtains();
