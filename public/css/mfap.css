@@ -499,12 +499,8 @@ and (max-width : 640px) {
 }
 
 #zigzag {
-  background: linear-gradient(135deg, #4c2c1f 25%, transparent 25%),
-  linear-gradient(225deg, #4c2c1f 25%, transparent 25%),
-  linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 12px 0,
-  linear-gradient(315deg, #4c2c1f 25%, transparent 25%) 12px 0;
+  background: linear-gradient(135deg, #4c2c1f 25%, transparent 25%), linear-gradient(225deg, #4c2c1f 25%, transparent 25%), linear-gradient(45deg, #4c2c1f 25%, transparent 25%) 12px 0, linear-gradient(315deg, #4c2c1f 25%, transparent 25%) 12px 0, #c1824f;
   background-size: 24px 24px;
-  background-color: #c1824f;
 }
 
 #shadow {
