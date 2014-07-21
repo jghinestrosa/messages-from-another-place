@@ -83,6 +83,10 @@
 
   /* Click events */
 
+  $tapeRecorder.on('mousedown', function(e) {
+    e.preventDefault();
+  });
+
   // Flip text when "Let's rock" is clicked
   $letsRock.on('click', startRecordingAnimation);
   $letsRock.on('mousedown', preventDefault);
@@ -302,14 +306,11 @@
   // Buttons of tape recorder
   function listenTapeRecorderEvents(enabled) {
 
-    var unpressStop = function() {
-      toggleButtonsPressed([$bStop]);
-    };
-
     // Stop listening click events
     if (!enabled) {
       $bRecord.off('click');
-      $bPlay.off('click');
+      //$bPlay.off('click');
+      $bPlay.off('mousedown');
       $bStop.off('mousedown mouseup mouseleave');
       $bEject.off('mousedown mouseup mouseleave');
       return;
@@ -352,8 +353,25 @@
 
     });
 
+    $bPlay.on('mousedown', function() {
 
-    $bPlay.on('click', function() {
+      // don't do anything if it is recording
+      if (isRecordingAudio()) {
+        return;
+      }
+
+      // if there is no audio file loaded, press and unpress button
+      // with mousedown, mouseup and mouseleave
+      if (audio.src === '') {
+        toggleButtonsPressed([$bPlay]);
+        $bPlay.on('mouseup mouseleave', function() {
+          toggleButtonsPressed([$bPlay]);
+          $bPlay.off('mouseup mouseleave');
+        });
+        return;
+      }
+
+      // if there is audio file loaded and is not recording nor playing audio
       if (!isRecordingAudio() && !isPlayingAudio()) {
         playAudio();
       }
