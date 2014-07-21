@@ -69,7 +69,7 @@
   background: #151515;
   left: 30%;
   cursor: pointer;
-  /*box-shadow: -5px 2px 0 #222222;*/
+  -webkit-box-shadow: -5px 2px 0 #000000;
   box-shadow: -5px 2px 0 #000000;
 }
 
