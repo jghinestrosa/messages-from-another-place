@@ -44,27 +44,28 @@
 
   /* Animation and transition events*/
 
+  showTitle();
+
   // Show title when the lights animation has ended
-  $lights.on('animationend webkitAnimationEnd', showTitle);
+  //$lights.on('animationend webkitAnimationEnd', showTitle);
 
-  // Show Let's Rock div when the title transition has ended
-  $title.on('transitionend webkitTransitionEnd', dimRoom);
-    
-  $dimmed.on('transitionend  webkitTransitionEnd', function() {
-    if (readyToStartRecording) {
-      showTapeRecorder();
-    }
-    else {
-      showLetsRock();
-      keepLightsOn();
-    }
+  // Dim room, keep lights on and show Let's Rock div
+  // when the title transition has ended
+  $title.on('transitionend webkitTransitionEnd', function() {
+    dimRoom();
+    showLetsRock();
+    setTimeout(keepLightsOn, 2000);
   });
-
+    
   // Hide lights div when the Let's Rock transition has ended
   //$letsRock.on('transitionend webkitTransitionEnd', handleLetsRockTransitions);
   
   // Remove flashing lights when the flashing and flipping animations end
-  $letsRock.on('animationend webkitAnimationEnd', prepareForRecording);
+  $letsRock.on('animationend webkitAnimationEnd', function() {
+    prepareForRecording();
+    showTapeRecorder();
+  
+  });
 
   // Hide diary message if the div is clicked
   $diary.on('transitionend webkitTransitionEnd', function() {
@@ -77,9 +78,6 @@
     if ($tapeRecorder.css('opacity') === '0') {
       $tapeRecorder.hide();
     }
-    //else {
-      //listenTapeRecorderEvents(true);
-    //}
   });
 
   /* Click events */
@@ -237,10 +235,10 @@
   function showTapeRecorder() {
     $tapeRecorder.css('display', 'inline-block');
 
-    // Hack for Firefox and Webkit browsers
+    // Delay only when showing the tape recorder
     setTimeout(function() {
       $tapeRecorder.css('opacity', '1.0');
-    }, 50);
+    }, 2000);
   }
 
   function hideTapeRecorder() {

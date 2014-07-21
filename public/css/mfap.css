@@ -239,8 +239,10 @@ html, body {
 
   transition-property: opacity;
   transition-duration: 3s;
+  transition-delay: 1s;
   -webkit-transition-property: opacity;
   -webkit-transition-duration: 3s;
+  -webkit-transition-delay: 1s;
   opacity: 0.0;
 }
 
@@ -321,8 +323,10 @@ html, body {
 
   transition-property: opacity, color, text-shadow;
   transition-duration: 3s, 0.5s, 1s;
+  transition-delay: 2s, 0s, 0s;
   -webkit-transition-property: opacity, color, text-shadow;
   -webkit-transition-duration: 3s, 0.5s, 1s;
+  -webkit-transition-delay: 2s, 0s, 0s;
   opacity: 0.0;
 }
 
