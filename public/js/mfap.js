@@ -85,11 +85,16 @@
 
   // Flip text when "Let's rock" is clicked
   $letsRock.on('click', startRecordingAnimation);
+  $letsRock.on('mousedown', preventDefault);
 
   // Hide diary when is clicked
   $diary.on('click', function() {
     hideDiaryMessage();
   });
+
+  function preventDefault(e) {
+    e.preventDefault();
+  }
 
   function showInfoMessage() {
     $infoIcon.css('opacity', '1');
@@ -117,6 +122,7 @@
       hideInfoMessage();
     }
   });
+
   $github.on('click', function(e) {
     e.stopPropagation();
   });
@@ -295,19 +301,25 @@
 
   // Buttons of tape recorder
   function listenTapeRecorderEvents(enabled) {
+
+    var unpressStop = function() {
+      toggleButtonsPressed([$bStop]);
+    };
+
     // Stop listening click events
     if (!enabled) {
       $bRecord.off('click');
       $bPlay.off('click');
-      $bStop.off('mousedown mouseup');
-      $bEject.off('mousedown mouseup');
+      $bStop.off('mousedown mouseup mouseleave');
+      $bEject.off('mousedown mouseup mouseleave');
       return;
     }
 
     // Start listening click events
     
     // The recording button of the tape recorder is clicked
-    $bRecord.on('click', function() {
+    $bRecord.on('click', function(e) {
+      e.preventDefault();
       if (!isRecordingAudio() && !isPlayingAudio()) {
         askForRecordingPermission();
       }
@@ -315,7 +327,8 @@
     });
 
     // Stop audio if playing or stop recording
-    $bStop.on('mousedown', function() {
+    $bStop.on('mousedown', function(e) {
+      e.preventDefault();
       if (isRecordingAudio() || isPlayingAudio()) {
         if (isRecordingAudio()) {
           stopRecording();
@@ -330,12 +343,15 @@
       }
 
       toggleButtonsPressed([$bStop]);
+
+      // Unpress stop button when mouseup
+      $bStop.on('mouseup mouseleave', function() {
+        toggleButtonsPressed([$bStop]);
+        $bStop.off('mouseup mouseleave');
+      });
+
     });
 
-    // Unpress stop button when mouseup
-    $bStop.on('mouseup', function() {
-      toggleButtonsPressed([$bStop]);
-    });
 
     $bPlay.on('click', function() {
       if (!isRecordingAudio() && !isPlayingAudio()) {
@@ -344,8 +360,14 @@
 
     });
 
-    $bEject.on('mousedown mouseup', function() {
+    $bEject.on('mousedown', function(e) {
+      e.preventDefault();
       toggleButtonsPressed([$bEject]);
+
+      $bEject.on('mouseup mouseleave', function() {
+        toggleButtonsPressed([$bEject]);
+        $bEject.off('mouseup mouseleave');
+      });
     });
   }
 
