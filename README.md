@@ -59,21 +59,22 @@ Right now, only Firefox, Chrome and Opera support `getUserMedia()`, the API that
 
 After being testing the app for a long time, these are the results I got:
 
-* Desktop
+* **Desktop**
     * Firefox: Works without any problems.
     * Chrome: Works without any problems but, sometimes, after visit the web for the first time, if you reopen it in a new tab, the transitions could not work correctly. This might be a bug of the application or a bug of Chrome but I haven't found the reason for this behaviour yet.
     * Opera: Not tested.
     * Safari: Not tested.
 
-* iOS
+* **iOS**
     * Safari: Audio can't be recorded yet.
     * Chrome: Audio can't be recorded yet.
 
-* Android
+* **Android**
     * Firefox: Works without any problems.
     * Chrome: It seems that there is a bug which makes unavailable to play audio using a blob url.
+    * Opera: Not tested.
 
-So, due to this results, the best thing I can say is **Firefox walk with me**.
+So, due to this results, the best thing I can say is **Firefox Walk With Me** :)
 
 ## Made with &hearts; by Jorge Garcia Hinestrosa under the sycamore trees
 
