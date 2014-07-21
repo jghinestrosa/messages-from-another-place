@@ -328,7 +328,7 @@
     });
 
     // Stop audio if playing or stop recording
-    $bStop.on('mousedown', function(e) {
+    $bStop.on('mousedown touchstart', function(e) {
       e.preventDefault();
       if (isRecordingAudio() || isPlayingAudio()) {
         if (isRecordingAudio()) {
@@ -346,14 +346,14 @@
       toggleButtonsPressed([$bStop]);
 
       // Unpress stop button when mouseup
-      $bStop.on('mouseup mouseleave', function() {
+      $bStop.on('mouseup mouseleave touchend', function() {
         toggleButtonsPressed([$bStop]);
-        $bStop.off('mouseup mouseleave');
+        $bStop.off('mouseup mouseleave touchend');
       });
 
     });
 
-    $bPlay.on('mousedown', function() {
+    $bPlay.on('mousedown touchstart', function() {
 
       // don't do anything if it is recording
       if (isRecordingAudio()) {
@@ -364,9 +364,9 @@
       // with mousedown, mouseup and mouseleave
       if (audio.src === '') {
         toggleButtonsPressed([$bPlay]);
-        $bPlay.on('mouseup mouseleave', function() {
+        $bPlay.on('mouseup mouseleave touchend', function() {
           toggleButtonsPressed([$bPlay]);
-          $bPlay.off('mouseup mouseleave');
+          $bPlay.off('mouseup mouseleave touchend');
         });
         return;
       }
@@ -378,13 +378,13 @@
 
     });
 
-    $bEject.on('mousedown', function(e) {
+    $bEject.on('mousedown touchstart', function(e) {
       e.preventDefault();
       toggleButtonsPressed([$bEject]);
 
-      $bEject.on('mouseup mouseleave', function() {
+      $bEject.on('mouseup mouseleave touchend', function() {
         toggleButtonsPressed([$bEject]);
-        $bEject.off('mouseup mouseleave');
+        $bEject.off('mouseup mouseleave touchend');
       });
     });
   }
