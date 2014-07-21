@@ -56,11 +56,12 @@
     }
     else {
       showLetsRock();
+      keepLightsOn();
     }
   });
 
   // Hide lights div when the Let's Rock transition has ended
-  $letsRock.on('transitionend webkitTransitionEnd', handleLetsRockTransitions);
+  //$letsRock.on('transitionend webkitTransitionEnd', handleLetsRockTransitions);
   
   // Remove flashing lights when the flashing and flipping animations end
   $letsRock.on('animationend webkitAnimationEnd', prepareForRecording);
@@ -76,9 +77,9 @@
     if ($tapeRecorder.css('opacity') === '0') {
       $tapeRecorder.hide();
     }
-    else {
-      listenTapeRecorderEvents(true);
-    }
+    //else {
+      //listenTapeRecorderEvents(true);
+    //}
   });
 
   /* Click events */
@@ -193,6 +194,7 @@
     setFlashingLights();
     flipText();
     readyToStartRecording = true;
+    listenTapeRecorderEvents(true);
   }
 
   function setFlashingLights() {
