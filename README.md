@@ -26,7 +26,9 @@ If you record your message talking backwards, the web will reverse the audio and
 
 ## Install
 
-You only have to download the source and run `npm install` to download all the dependencies.
+If you want to install it in your computer you will need to have `node` and `npm` installed first.
+
+After that, you only have to download the source and run `npm install` to download all the dependencies.
 
 If you want to give it a try in localhost the source contains an express server ready to use. Just run `npm start` and the server will start to listen in your `process.env.PORT` port or `9000` by default. 
 
@@ -55,6 +57,24 @@ For now, I have tested the application in different computers, in some Android d
 
 Right now, only Firefox, Chrome and Opera support `getUserMedia()`, the API that allows the web app to access to the microphone. Because of this, if you're an Internet Explorer or Safari user you can enjoy the animations and the design but you won't be able to record audio.
 
+After being testing the app for a long time, these are the results I got:
+
+* Desktop
+    * Firefox: Works without any problems.
+    * Chrome: Works without any problems but, sometimes, after visit the web for the first time, if you reopen it in a new tab, the transitions could not work correctly. This might be a bug of the application or a bug of Chrome but I haven't found the reason for this behaviour yet.
+    * Opera: Not tested.
+    * Safari: Not tested.
+
+* iOS
+    * Safari: Audio can't be recorded yet.
+    * Chrome: Audio can't be recorded yet.
+
+* Android
+    * Firefox: Works without any problems.
+    * Chrome: It seems that there is a bug which makes unavailable to play audio using a blob url.
+
+So, due to this results, the best thing I can say is **Firefox walk with me**.
+
 ## Made with &hearts; by Jorge Garcia Hinestrosa under the sycamore trees
 
 I have tried to design any aspect of the web using only CSS3. I did not want to add any image file if it wasn't totally necessary so, the curtains, the floor, the shadow, the tape recorder, the diary... everything has been made using CSS3 by myself.
@@ -62,6 +82,8 @@ I have tried to design any aspect of the web using only CSS3. I did not want to 
 The owl made by ASCII art that is included in the source is not mine. I found it in an ASCII art website and the author was unknown (thank you too!).
 
 I hope you all like the web as much as I like developing it.
+
+[@jghinestrosa](https://twitter.com/jghinestrosa)
 
 ## License
 MIT
